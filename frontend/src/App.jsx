@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./app.css";
+import "./mainContainer.css";
 import questionNumber from "./components/questionNumberAndPrize";
 
 const App = () => {
@@ -8,7 +9,16 @@ const App = () => {
     // Main
     <div className="main">
       {/* First Container */}
-      <div className="mainContainer">1</div>
+      <div className="mainContainer">
+        {/* First section */}
+        <div className="firstSection">1</div>
+        {/* Second section */}
+        <div className="secondSection">
+          <div className="timer"></div>
+        </div>
+        {/* Third section */}
+        <div className="thirdSection">3</div>
+      </div>
       {/* Second Container */}
       <div className="secondContainer">
         {/* Lifelines Container part of Second Container */}
