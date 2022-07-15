@@ -40,27 +40,33 @@ const questionNumber = [
     id: 10,
     amount: "$ 10000",
     saveSum: true,
+    indent: true,
   },
   {
     id: 11,
     amount: "$ 15000",
+    indent: true,
   },
   {
     id: 12,
     amount: "$ 30000",
+    indent: true,
   },
   {
     id: 13,
     amount: "$ 50000",
+    indent: true,
   },
   {
     id: 14,
     amount: "$ 75000",
+    indent: true,
   },
   {
     id: 15,
     amount: "$ 100000",
+    indent: true,
   },
-];
+].reverse();
 
 export default questionNumber;

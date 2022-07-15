@@ -79,38 +79,43 @@
   background-color: black;
   display: flex;
   width: 100%;
+
   justify-content: center;
   padding-top: 50px;
 }
 .questionsContainer {
-  list-style: none;
+  width: 100%;
+}
+.questionsContainerSelected {
+  background-color: teal;
+  width: 100%;
 }
 .questionItemNumber {
   list-style: none;
-
-  padding-right: 10px;
+  padding-left: 110px;
+  padding-right: 20px;
   font-size: 21px;
   font-weight: 250;
   color: #e7863a;
 }
 .questionItemNumberWhite {
   list-style: none;
-
-  padding-right: 10px;
+  padding-left: 110px;
+  padding-right: 20px;
   font-size: 21px;
   font-weight: 250;
   color: white;
 }
 .questionItemAmount {
   list-style: none;
-  padding-left: 10px;
+  padding-left: 20px;
   font-size: 21px;
   font-weight: 250;
   color: #e7863a;
 }
 .questionItemAmountWhite {
   list-style: none;
-  padding-left: 10px;
+  padding-left: 20px;
   font-size: 21px;
   font-weight: 250;
   color: white;
@@ -122,4 +127,21 @@
   width: 20px;
   display: inline-block;
   margin: 5px;
+}
+.diamondIdent {
+  background: white;
+  clip-path: polygon(0 50%, 50% 100%, 100% 50%, 50% 0);
+  width: 20px;
+  display: inline-block;
+  margin: 5px;
+  margin-left: 15px;
+}
+.group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }

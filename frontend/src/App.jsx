@@ -1,7 +1,9 @@
+import { useState } from "react";
 import "./app.css";
 import questionNumber from "./components/questionNumberAndPrize";
 
 const App = () => {
+  const [question, setQuestion] = useState(10);
   return (
     // Main
     <div className="main">
@@ -19,9 +21,15 @@ const App = () => {
 
         {/*  Begging of the Container with the questions  */}
         <div className="moneyQuestionsNumberAndPrizeContainer">
-          <ul className="questionsContainer">
+          <ul className="group">
             {questionNumber.map((item) => (
-              <li>
+              <li
+                className={
+                  question === item.id
+                    ? "questionsContainerSelected"
+                    : "questionsContainer"
+                }
+              >
                 <span
                   className={
                     item.saveSum === true
@@ -31,7 +39,11 @@ const App = () => {
                 >
                   {item.id}
                 </span>
-                <span className="diamond">.</span>
+                <span
+                  className={item.indent === true ? "diamond" : "diamondIdent"}
+                >
+                  .
+                </span>
                 <span
                   className={
                     item.saveSum === true
