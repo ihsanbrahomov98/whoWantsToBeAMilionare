@@ -31,11 +31,11 @@ const questionsForAnswering = [
     answers: [
       {
         body: "One-pack",
-        correct: false,
+        correct: true,
       },
       {
         body: "Six-pack",
-        correct: true,
+        correct: false,
       },
       {
         body: "Two-pack",

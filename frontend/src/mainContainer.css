@@ -37,9 +37,73 @@
   text-align: center;
 }
 .singleQuestionContainer {
-  padding-top: 50px;
+  padding-top: 30px;
   width: 990px;
   margin: auto;
+  background: linear-gradient(#150234, #250755);
+  padding-bottom: 30px;
+  color: white;
+  text-align: center;
   display: block;
   background-color: red;
+}
+.answerContainer {
+  display: flex;
+  direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+.firstQuestion {
+  width: 40%;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid white;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: white;
+  background: linear-gradient(#150234, #250755);
+}
+.secondQuestion {
+  width: 40%;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid white;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: white;
+  background: linear-gradient(#150234, #250755);
+}
+.thirdQuestion {
+  width: 40%;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid white;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: white;
+  background: linear-gradient(#150234, #250755);
+}
+.fourthQuestion {
+  width: 40%;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid white;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: white;
+  background: linear-gradient(#150234, #250755);
 }
