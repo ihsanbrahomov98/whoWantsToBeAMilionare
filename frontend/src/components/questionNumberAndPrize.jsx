@@ -18,6 +18,7 @@ const questionNumber = [
   {
     id: 5,
     amount: "$ 500",
+    saveSum: true,
   },
   {
     id: 6,
@@ -38,6 +39,7 @@ const questionNumber = [
   {
     id: 10,
     amount: "$ 10000",
+    saveSum: true,
   },
   {
     id: 11,

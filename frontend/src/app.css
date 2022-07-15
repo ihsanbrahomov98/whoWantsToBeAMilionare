@@ -22,16 +22,18 @@
   justify-content: flex-start;
   align-content: stretch;
   align-items: flex-start;
+  background-color: black;
 }
 .lifelinesContainer {
   width: 100%;
+  background-color: black;
 
   height: 15%;
   justify-content: center;
   align-items: flex-start;
   direction: row;
   display: flex;
-  background-color: red;
+
   padding-top: 35px;
 }
 .firstlifeline {
@@ -74,7 +76,7 @@
 }
 .moneyQuestionsNumberAndPrizeContainer {
   height: 80%;
-  background-color: lightblue;
+  background-color: black;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -89,12 +91,29 @@
   padding-right: 10px;
   font-size: 21px;
   font-weight: 250;
+  color: #e7863a;
+}
+.questionItemNumberWhite {
+  list-style: none;
+
+  padding-right: 10px;
+  font-size: 21px;
+  font-weight: 250;
+  color: white;
 }
 .questionItemAmount {
   list-style: none;
   padding-left: 10px;
   font-size: 21px;
   font-weight: 250;
+  color: #e7863a;
+}
+.questionItemAmountWhite {
+  list-style: none;
+  padding-left: 10px;
+  font-size: 21px;
+  font-weight: 250;
+  color: white;
 }
 
 .diamond {

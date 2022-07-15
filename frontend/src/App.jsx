@@ -22,28 +22,27 @@ const App = () => {
           <ul className="questionsContainer">
             {questionNumber.map((item) => (
               <li>
-                <span>{item.id}</span>
+                <span
+                  className={
+                    item.saveSum === true
+                      ? "questionItemNumberWhite"
+                      : "questionItemNumber"
+                  }
+                >
+                  {item.id}
+                </span>
                 <span className="diamond">.</span>
-                <span className="questionItemAmount">{item.amount}</span>
+                <span
+                  className={
+                    item.saveSum === true
+                      ? "questionItemAmountWhite"
+                      : "questionItemAmount"
+                  }
+                >
+                  {item.amount}
+                </span>
               </li>
             ))}
-            <li className="questionItem">
-              <span className="questionItemNumber">15</span>
-              <span className="diamond">.</span>
-              <span className="questionItemAmount">400$</span>
-            </li>
-            <li>
-              <span>14</span>
-              <span>.</span>
-              <span>300$</span>
-            </li>
-            <li>
-              <span>13</span>
-              <span>.</span>
-              <span>200$</span>
-            </li>
-            <li>1</li>
-            <li>1</li>
           </ul>
         </div>
       </div>
