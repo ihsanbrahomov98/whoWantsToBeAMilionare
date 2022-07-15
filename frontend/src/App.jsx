@@ -5,6 +5,7 @@ import questionNumber from "./components/questionNumberAndPrize";
 
 const App = () => {
   const [question, setQuestion] = useState(10);
+  const [timer, setTimer] = useState(30);
   return (
     // Main
     <div className="main">
@@ -14,7 +15,8 @@ const App = () => {
         <div className="firstSection">1</div>
         {/* Second section */}
         <div className="secondSection">
-          <div className="timer"></div>
+          <div className="timer">{timer}</div>
+          <div className="singleQuestionContainer"></div>
         </div>
         {/* Third section */}
         <div className="thirdSection">3</div>

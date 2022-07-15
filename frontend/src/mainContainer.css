@@ -1,6 +1,6 @@
 .mainContainer {
-  background-color: ghostwhite;
   height: 100%;
+  background-color: teal;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,14 +20,26 @@
 .secondSection {
   padding: 80px;
   flex: 2;
+  flex-direction: column;
+  display: flex;
 }
 .thirdSection {
   flex: 1;
 }
 .timer {
-  height: 75px;
-  width: 75px;
-  background-color: #bbb;
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
   border-radius: 50%;
-  display: inline-block;
+  border: 5px solid white;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+}
+.singleQuestionContainer {
+  padding-top: 50px;
+  width: 990px;
+  margin: auto;
+  display: block;
+  background-color: red;
 }
