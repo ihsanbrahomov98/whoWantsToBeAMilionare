@@ -1,4 +1,4 @@
-const questionNumber = [
+const prices = [
   {
     id: 1,
     amount: "$ 100",
@@ -69,4 +69,4 @@ const questionNumber = [
   },
 ].reverse();
 
-export default questionNumber;
+export default prices;

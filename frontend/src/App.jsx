@@ -1,22 +1,21 @@
 import { useState, useEffect } from "react";
 import "./app.css";
 import "./mainContainer.css";
-import questionsForAnswering from "./components/questionsForAnswering";
-import questionNumber from "./components/questionNumberAndPrize";
+import oneQuestionFourAnswers from "./components/oneQuestionFourAnswers";
+import prices from "./components/prices";
 
 const App = () => {
-  const [question, setQuestion] = useState(1);
-  const [questionDisplayed, setQuestionDisplayed] = useState(-1);
-  const [questionNumberSingle, setTquestionNumberimerSingle] = useState(1);
+  const [question, setQuestion] = useState(0);
+  const [timer, setTimer] = useState(30);
 
   useEffect(() => {
-    setQuestionDisplayed(questionDisplayed + 1);
-  }, [questionNumberSingle]);
+    timer > 0 && setTimeout(() => setTimer(timer - 1), 1000);
+  }, [timer]);
 
   const checkingAnswer = (answer) => {
     if (answer === true) {
       alert("true");
-      setTquestionNumberimerSingle(questionNumberSingle + 1);
+      setQuestion(question + 1);
     } else {
       alert("false");
     }
@@ -30,45 +29,53 @@ const App = () => {
         <div className="firstSection">1</div>
         {/* Second section */}
         <div className="secondSection">
-          <div className="timer">{questionNumberSingle}</div>
+          <div className="timer">{timer}</div>
           <div className="singleQuestionContainer">
-            {questionsForAnswering[0].question}
+            {oneQuestionFourAnswers[question].question}
           </div>
           <div className="answerContainer">
             <div
               className="firstQuestion"
               onClick={() =>
-                checkingAnswer(questionsForAnswering[0].answers[0].correct)
+                checkingAnswer(
+                  oneQuestionFourAnswers[question].answers[0].correct
+                )
               }
             >
-              {questionsForAnswering[0].answers[0].body}
+              {oneQuestionFourAnswers[question].answers[0].body}
             </div>
             <div
               className="secondQuestion"
               onClick={() =>
-                checkingAnswer(questionsForAnswering[0].answers[1].correct)
+                checkingAnswer(
+                  oneQuestionFourAnswers[question].answers[1].correct
+                )
               }
             >
               {" "}
-              {questionsForAnswering[0].answers[1].body}
+              {oneQuestionFourAnswers[question].answers[1].body}
             </div>
             <div
               className="thirdQuestion"
               onClick={() =>
-                checkingAnswer(questionsForAnswering[0].answers[2].correct)
+                checkingAnswer(
+                  oneQuestionFourAnswers[question].answers[2].correct
+                )
               }
             >
               {" "}
-              {questionsForAnswering[0].answers[2].body}
+              {oneQuestionFourAnswers[question].answers[2].body}
             </div>
             <div
               className="fourthQuestion"
               onClick={() =>
-                checkingAnswer(questionsForAnswering[0].answers[3].correct)
+                checkingAnswer(
+                  oneQuestionFourAnswers[question].answers[3].correct
+                )
               }
             >
               {" "}
-              {questionsForAnswering[0].answers[3].body}
+              {oneQuestionFourAnswers[question].answers[3].body}
             </div>
           </div>
         </div>
@@ -88,10 +95,10 @@ const App = () => {
         {/*  Begging of the Container with the questions  */}
         <div className="moneyQuestionsNumberAndPrizeContainer">
           <ul className="group">
-            {questionNumber.map((item) => (
+            {prices.map((item) => (
               <li
                 className={
-                  question === item.id
+                  question === item.id - 1
                     ? "questionsContainerSelected"
                     : "questionsContainer"
                 }
