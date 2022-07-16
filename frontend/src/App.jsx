@@ -6,6 +6,8 @@ import prices from "./components/prices";
 
 const App = () => {
   const [question, setQuestion] = useState(0);
+  const [oneQuestionFourAnswersSelected, setOneQuestionFourAnswersSelected] =
+    useState(oneQuestionFourAnswers[0]);
   const [timer, setTimer] = useState(10);
   const [newQuestion, setNewQuestion] = useState(false);
   const [
@@ -80,14 +82,26 @@ const App = () => {
     setTimer(10);
   }, [question]);
 
+  useEffect(() => {
+    setOneQuestionFourAnswersSelected(oneQuestionFourAnswers[question]);
+    if (oneQuestionFourAnswersSelected)
+      console.log(oneQuestionFourAnswersSelected);
+  }, [question]);
+
   const startNewGame = () => {
     setTimer(10);
     setQuestion(0);
   };
   const firstLifeLineUsed = () => {
-    let rightAnswer = oneQuestionFourAnswers.answers.correct === true;
-
-    oneQuestionFourAnswers.filter((item) => item.answers[1]);
+    const wrongAnswers = [];
+    for (let i = 0; i <= 3; i++) {
+      if (!oneQuestionFourAnswers[question].answers[i].correct) {
+        wrongAnswers.push(oneQuestionFourAnswers[question].answers[i]);
+      } else {
+        wrongAnswers.push(oneQuestionFourAnswers[question].answers[i]);
+      }
+    }
+    console.log(wrongAnswers);
   };
 
   return (
@@ -112,7 +126,7 @@ const App = () => {
           <div className="secondSection">
             <div className="timer">{timer}</div>
             <div className="singleQuestionContainer">
-              {oneQuestionFourAnswers[question].question}
+              {oneQuestionFourAnswersSelected.question}
             </div>
             <div className="answerContainer">
               <div
@@ -124,12 +138,12 @@ const App = () => {
                 }
                 onClick={(e) =>
                   checkingAnswer(
-                    oneQuestionFourAnswers[question].answers[0].correct,
+                    oneQuestionFourAnswersSelected.answers[0].correct,
                     e.target.id
                   )
                 }
               >
-                {oneQuestionFourAnswers[question].answers[0].body}
+                {oneQuestionFourAnswersSelected.answers[0].body}
               </div>
               <div
                 id="second"
@@ -140,13 +154,13 @@ const App = () => {
                 }
                 onClick={(e) =>
                   checkingAnswer(
-                    oneQuestionFourAnswers[question].answers[1].correct,
+                    oneQuestionFourAnswersSelected.answers[1].correct,
                     e.target.id
                   )
                 }
               >
                 {" "}
-                {oneQuestionFourAnswers[question].answers[1].body}
+                {oneQuestionFourAnswersSelected.answers[1].body}
               </div>
               <div
                 id="third"
@@ -157,13 +171,13 @@ const App = () => {
                 }
                 onClick={(e) =>
                   checkingAnswer(
-                    oneQuestionFourAnswers[question].answers[2].correct,
+                    oneQuestionFourAnswersSelected.answers[2].correct,
                     e.target.id
                   )
                 }
               >
                 {" "}
-                {oneQuestionFourAnswers[question].answers[2].body}
+                {oneQuestionFourAnswersSelected.answers[2].body}
               </div>
               <div
                 id="fourth"
@@ -174,13 +188,13 @@ const App = () => {
                 }
                 onClick={(e) =>
                   checkingAnswer(
-                    oneQuestionFourAnswers[question].answers[3].correct,
+                    oneQuestionFourAnswersSelected.answers[3].correct,
                     e.target.id
                   )
                 }
               >
                 {" "}
-                {oneQuestionFourAnswers[question].answers[3].body}
+                {oneQuestionFourAnswersSelected.answers[3].body}
               </div>
             </div>
           </div>
@@ -193,7 +207,7 @@ const App = () => {
           <div className="lifelinesContainer">
             {/*  Begging of the Container with the lifelines  */}
             <div
-              onClick={() => setFirstLiveLine(false)}
+              onClick={() => firstLifeLineUsed()}
               className={
                 firstLiveLine ? "firstlifeline" : "firstlifelineIncorect"
               }
