@@ -38,6 +38,19 @@
 
   border-radius: 50px / 25px;
 }
+.firstlifelineIncorect {
+  background-image: url("./images/Classic5050used.webp");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  position: relative;
+  width: 100px;
+  height: 50px;
+
+  border-radius: 50px / 25px;
+}
 .secondlifeline {
   background-image: url("./images/PAF_2018.webp");
   background-color: #cccccc;

@@ -8,33 +8,88 @@ const App = () => {
   const [question, setQuestion] = useState(0);
   const [timer, setTimer] = useState(10);
   const [newQuestion, setNewQuestion] = useState(false);
-  const checkingAnswer = (answer) => {
-    if (answer === true) {
-      alert("true");
-      setQuestion(question + 1);
-      setTimer(10);
-      setNewQuestion(true);
-    } else {
-      alert("false");
+  const [
+    backGroundColorOfAQuestionToOrangeOne,
+    setBackGroundColorOfAQuestionToOrangeOne,
+  ] = useState(false);
+  const [
+    backGroundColorOfAQuestionToOrangeTwo,
+    setBackGroundColorOfAQuestionToOrangeTwo,
+  ] = useState(false);
+  const [
+    backGroundColorOfAQuestionToOrangeThree,
+    setBackGroundColorOfAQuestionToOrangeThree,
+  ] = useState(false);
+  const [
+    backGroundColorOfAQuestionToOrangeFour,
+    setBackGroundColorOfAQuestionToOrangeFour,
+  ] = useState(false);
+  const [firstLiveLine, setFirstLiveLine] = useState(true);
+  const [stopTimer, setStopTimer] = useState(false);
+
+  const checkingAnswer = (answer, id) => {
+    if (id === "first") {
+      setBackGroundColorOfAQuestionToOrangeOne(true);
     }
+    if (id === "second") {
+      setBackGroundColorOfAQuestionToOrangeTwo(true);
+    }
+    if (id === "third") {
+      setBackGroundColorOfAQuestionToOrangeThree(true);
+    }
+    if (id === "fourth") {
+      setBackGroundColorOfAQuestionToOrangeFour(true);
+    }
+
+    setStopTimer(true);
+
+    setTimeout(() => {
+      if (answer === true) {
+        alert("true");
+        setQuestion(question + 1);
+        setTimer(10);
+        setNewQuestion(true);
+        setBackGroundColorOfAQuestionToOrangeOne(false);
+        setBackGroundColorOfAQuestionToOrangeTwo(false);
+        setBackGroundColorOfAQuestionToOrangeThree(false);
+        setBackGroundColorOfAQuestionToOrangeFour(false);
+        setStopTimer(false);
+      } else {
+        alert("false");
+        setTimer(0);
+        setBackGroundColorOfAQuestionToOrangeOne(false);
+        setBackGroundColorOfAQuestionToOrangeTwo(false);
+        setBackGroundColorOfAQuestionToOrangeThree(false);
+        setBackGroundColorOfAQuestionToOrangeFour(false);
+        setStopTimer(false);
+      }
+    }, 5000);
   };
 
   useEffect(() => {
     console.log("tik tak");
-    const interval = setInterval(() => {
-      setTimer((prev) => prev - 1);
-    }, 1000);
-    return () => clearInterval(interval);
+    if (timer >= 1 && !stopTimer) {
+      const interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
   }, [timer]);
 
   useEffect(() => {
-    setTimer(30);
+    setTimer(10);
   }, [question]);
 
   const startNewGame = () => {
     setTimer(10);
     setQuestion(0);
   };
+  const firstLifeLineUsed = () => {
+    let rightAnswer = oneQuestionFourAnswers.answers.correct === true;
+
+    oneQuestionFourAnswers.filter((item) => item.answers[1]);
+  };
+
   return (
     <>
       {timer === 0 ? (
@@ -61,20 +116,32 @@ const App = () => {
             </div>
             <div className="answerContainer">
               <div
-                className="firstQuestion"
-                onClick={() =>
+                id="first"
+                className={
+                  backGroundColorOfAQuestionToOrangeOne
+                    ? "firstQuestionOrange"
+                    : "firstQuestion"
+                }
+                onClick={(e) =>
                   checkingAnswer(
-                    oneQuestionFourAnswers[question].answers[0].correct
+                    oneQuestionFourAnswers[question].answers[0].correct,
+                    e.target.id
                   )
                 }
               >
                 {oneQuestionFourAnswers[question].answers[0].body}
               </div>
               <div
-                className="secondQuestion"
-                onClick={() =>
+                id="second"
+                className={
+                  backGroundColorOfAQuestionToOrangeTwo
+                    ? "firstQuestionOrange"
+                    : "firstQuestion"
+                }
+                onClick={(e) =>
                   checkingAnswer(
-                    oneQuestionFourAnswers[question].answers[1].correct
+                    oneQuestionFourAnswers[question].answers[1].correct,
+                    e.target.id
                   )
                 }
               >
@@ -82,10 +149,16 @@ const App = () => {
                 {oneQuestionFourAnswers[question].answers[1].body}
               </div>
               <div
-                className="thirdQuestion"
-                onClick={() =>
+                id="third"
+                className={
+                  backGroundColorOfAQuestionToOrangeThree
+                    ? "firstQuestionOrange"
+                    : "firstQuestion"
+                }
+                onClick={(e) =>
                   checkingAnswer(
-                    oneQuestionFourAnswers[question].answers[2].correct
+                    oneQuestionFourAnswers[question].answers[2].correct,
+                    e.target.id
                   )
                 }
               >
@@ -93,10 +166,16 @@ const App = () => {
                 {oneQuestionFourAnswers[question].answers[2].body}
               </div>
               <div
-                className="fourthQuestion"
-                onClick={() =>
+                id="fourth"
+                className={
+                  backGroundColorOfAQuestionToOrangeFour
+                    ? "firstQuestionOrange"
+                    : "firstQuestion"
+                }
+                onClick={(e) =>
                   checkingAnswer(
-                    oneQuestionFourAnswers[question].answers[3].correct
+                    oneQuestionFourAnswers[question].answers[3].correct,
+                    e.target.id
                   )
                 }
               >
@@ -113,7 +192,12 @@ const App = () => {
           {/* Lifelines Container part of Second Container */}
           <div className="lifelinesContainer">
             {/*  Begging of the Container with the lifelines  */}
-            <div className="firstlifeline"></div>
+            <div
+              onClick={() => setFirstLiveLine(false)}
+              className={
+                firstLiveLine ? "firstlifeline" : "firstlifelineIncorect"
+              }
+            ></div>
             <div className="secondlifeline"></div>
             <div className="thirdlifeline"></div>
           </div>
