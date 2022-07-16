@@ -67,6 +67,6 @@ const prices = [
     amount: "$ 100000",
     indent: true,
   },
-].reverse();
+];
 
 export default prices;

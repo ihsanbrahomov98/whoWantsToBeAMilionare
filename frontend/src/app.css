@@ -135,3 +135,8 @@
   align-content: center;
   align-items: center;
 }
+.lostGame {
+  z-index: 2223;
+
+  text-align: center;
+}
