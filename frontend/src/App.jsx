@@ -95,13 +95,25 @@ const App = () => {
   const firstLifeLineUsed = () => {
     const wrongAnswers = [];
     for (let i = 0; i <= 3; i++) {
-      if (!oneQuestionFourAnswers[question].answers[i].correct) {
-        wrongAnswers.push(oneQuestionFourAnswers[question].answers[i]);
-      } else {
+      if (
+        !oneQuestionFourAnswers[question].answers[i].correct &&
+        wrongAnswers.length === 0
+      ) {
         wrongAnswers.push(oneQuestionFourAnswers[question].answers[i]);
       }
     }
+    for (let i = 0; i <= 3; i++) {
+      if (oneQuestionFourAnswers[question].answers[i].correct) {
+        wrongAnswers.push(oneQuestionFourAnswers[question].answers[i]);
+      }
+    }
+    for (let i = 0; i <= 1; i++) {
+      wrongAnswers.push(oneQuestionFourAnswers[question].answers.body === " ");
+    }
     console.log(wrongAnswers);
+    const fixed = [(oneQuestionFourAnswers[question].answers = wrongAnswers)];
+
+    console.log(oneQuestionFourAnswers[question]);
   };
 
   return (
