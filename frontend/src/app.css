@@ -43,6 +43,7 @@
   background-color: #cccccc;
   background-position: center;
   background-repeat: no-repeat;
+  pointer-events: none;
   background-size: cover;
   object-fit: cover;
   position: relative;

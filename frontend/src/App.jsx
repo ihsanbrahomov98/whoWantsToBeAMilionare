@@ -93,6 +93,7 @@ const App = () => {
     setQuestion(0);
   };
   const firstLifeLineUsed = () => {
+    setFirstLiveLine(false);
     let copiedObject = JSON.parse(
       JSON.stringify(oneQuestionFourAnswers[question])
     );
