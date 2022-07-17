@@ -93,6 +93,26 @@ const App = () => {
     setQuestion(0);
   };
   const firstLifeLineUsed = () => {
+    let copiedObject = JSON.parse(
+      JSON.stringify(oneQuestionFourAnswers[question].answers)
+    );
+
+    const shufle = (oneQuestionFourAnswers) => {
+      for (
+        let i = oneQuestionFourAnswers[question].answers.length - 1;
+        i > 0;
+        i--
+      ) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = oneQuestionFourAnswers[question].answers[i];
+        oneQuestionFourAnswers[question].answers[i] =
+          oneQuestionFourAnswers[question].answers[j];
+        oneQuestionFourAnswers[question].answers[j] = temp;
+      }
+      return oneQuestionFourAnswers[question].answers;
+    };
+    shufle(oneQuestionFourAnswers);
+
     const wrongAnswers = [];
     for (let i = 0; i <= 3; i++) {
       if (
@@ -108,12 +128,14 @@ const App = () => {
       }
     }
     for (let i = 0; i <= 1; i++) {
-      wrongAnswers.push(oneQuestionFourAnswers[question].answers.body === " ");
+      wrongAnswers.push(oneQuestionFourAnswers[question].answers.body === "");
     }
     console.log(wrongAnswers);
     const fixed = [(oneQuestionFourAnswers[question].answers = wrongAnswers)];
 
-    console.log(oneQuestionFourAnswers[question]);
+    const newShufle = shufle(oneQuestionFourAnswers);
+    console.log(newShufle);
+    console.log(copiedObject);
   };
 
   return (
