@@ -149,21 +149,34 @@ const App = () => {
       if (copiedObject.answers[i].body === rightAnswerMap[0].body) {
         console.log("right");
         console.log(copiedObject.answers[i].body);
-        newArray.push(copiedObject.answers[i].body);
+        newArray.push({
+          body: copiedObject.answers[i].body,
+          correct: true,
+        });
       } else if (copiedObject.answers[i].body === wrongAnswerMap[0].body) {
         console.log("wrong");
-        console.log(copiedObject.answers[i].body);
-        newArray.push(copiedObject.answers[i].body);
+        console.log(copiedObject.answers[i].bod);
+        newArray.push({
+          body: copiedObject.answers[i].body,
+          correct: false,
+        });
       } else {
-        newArray.push("false");
+        newArray.push({
+          body: "",
+          correct: false,
+        });
         console.log(copiedObject.answers[i].body);
       }
     }
     console.log(newArray);
-    const finalFilter = copiedObject.answers.filter(
-      (item) => item.body !== rightAnswerMap.body
-    );
-    console.log(copiedObject.answers);
+    const finalModifer = [
+      (oneQuestionFourAnswers[question].answers = newArray),
+    ];
+    // const finalFilter = copiedObject.answers.filter(
+    //   (item) => item.body !== rightAnswerMap.body
+    // );
+    // console.log(copiedObject.answers);
+    // setOneQuestionFourAnswersSelected(...copiedObject, newArray);
   };
 
   return (
