@@ -94,7 +94,7 @@ const App = () => {
   };
   const firstLifeLineUsed = () => {
     let copiedObject = JSON.parse(
-      JSON.stringify(oneQuestionFourAnswers[question].answers)
+      JSON.stringify(oneQuestionFourAnswers[question])
     );
 
     const shufle = (oneQuestionFourAnswers) => {
@@ -122,6 +122,7 @@ const App = () => {
         wrongAnswers.push(oneQuestionFourAnswers[question].answers[i]);
       }
     }
+
     for (let i = 0; i <= 3; i++) {
       if (oneQuestionFourAnswers[question].answers[i].correct) {
         wrongAnswers.push(oneQuestionFourAnswers[question].answers[i]);
@@ -134,8 +135,35 @@ const App = () => {
     const fixed = [(oneQuestionFourAnswers[question].answers = wrongAnswers)];
 
     const newShufle = shufle(oneQuestionFourAnswers);
-    console.log(newShufle);
-    console.log(copiedObject);
+
+    const wrongAnswerMap = oneQuestionFourAnswers[question].answers.filter(
+      (item) => item.correct === false
+    );
+
+    const rightAnswerMap = oneQuestionFourAnswers[question].answers.filter(
+      (item) => item.correct === true
+    );
+
+    let newArray = [];
+    for (let i = 0; i <= 3; i++) {
+      if (copiedObject.answers[i].body === rightAnswerMap[0].body) {
+        console.log("right");
+        console.log(copiedObject.answers[i].body);
+        newArray.push(copiedObject.answers[i].body);
+      } else if (copiedObject.answers[i].body === wrongAnswerMap[0].body) {
+        console.log("wrong");
+        console.log(copiedObject.answers[i].body);
+        newArray.push(copiedObject.answers[i].body);
+      } else {
+        newArray.push("false");
+        console.log(copiedObject.answers[i].body);
+      }
+    }
+    console.log(newArray);
+    const finalFilter = copiedObject.answers.filter(
+      (item) => item.body !== rightAnswerMap.body
+    );
+    console.log(copiedObject.answers);
   };
 
   return (
