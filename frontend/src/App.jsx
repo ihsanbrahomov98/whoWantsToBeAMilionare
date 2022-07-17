@@ -173,18 +173,25 @@ const App = () => {
     const finalModifer = [
       (oneQuestionFourAnswers[question].answers = newArray),
     ];
-    // const finalFilter = copiedObject.answers.filter(
-    //   (item) => item.body !== rightAnswerMap.body
-    // );
-    // console.log(copiedObject.answers);
-    // setOneQuestionFourAnswersSelected(...copiedObject, newArray);
+  };
+  const secondLifeLine = () => {
+    const difficultyOfTheQuestion =
+      oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
+    console.log(difficultyOfTheQuestion);
+    let randomNum = Math.random();
+    console.log(randomNum);
+    if (difficultyOfTheQuestion <= randomNum) {
+      console.log("correct");
+    } else {
+      console.log("wrong");
+    }
   };
 
   return (
     <>
       {timer === 0 ? (
-        <div>
-          <div className="lostGame">lost game</div>
+        <div className="lostGame">
+          <div>lost game</div>
           <div>your score is: {prices[question].amount}</div>
           <div onClick={() => startNewGame()}>play new game </div>
         </div>
@@ -288,7 +295,10 @@ const App = () => {
                 firstLiveLine ? "firstlifeline" : "firstlifelineIncorect"
               }
             ></div>
-            <div className="secondlifeline"></div>
+            <div
+              onClick={() => secondLifeLine()}
+              className="secondlifeline"
+            ></div>
             <div className="thirdlifeline"></div>
           </div>
 

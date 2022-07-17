@@ -151,6 +151,11 @@
 }
 .lostGame {
   z-index: 2223;
-
+  position: absolute;
+  background-color: black;
   text-align: center;
+  color: white;
+  width: 100vw;
+  padding-bottom: 46.1vh;
+  padding-top: 46.1vh;
 }
