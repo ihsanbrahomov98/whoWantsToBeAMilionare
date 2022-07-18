@@ -3,6 +3,7 @@ import "./app.css";
 import "./mainContainer.css";
 import oneQuestionFourAnswers from "./components/oneQuestionFourAnswers";
 import prices from "./components/prices";
+import "./askTheAudience.css";
 
 const App = () => {
   const [question, setQuestion] = useState(0);
@@ -27,6 +28,7 @@ const App = () => {
     setBackGroundColorOfAQuestionToOrangeFour,
   ] = useState(false);
   const [firstLiveLine, setFirstLiveLine] = useState(true);
+  const [askTheAudience, setAskTheAudience] = useState(false);
   const [stopTimer, setStopTimer] = useState(false);
 
   const checkingAnswer = (answer, id) => {
@@ -175,6 +177,7 @@ const App = () => {
     ];
   };
   const secondLifeLine = () => {
+    setAskTheAudience(true);
     const difficultyOfTheQuestion =
       oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
     console.log(difficultyOfTheQuestion);
@@ -204,8 +207,22 @@ const App = () => {
 
         <div className="mainContainer">
           {/* First section */}
-          <div className="firstSection">1</div>
-          {/* Second section */}
+          <div className="firstSection">
+            <div className="askTheAudienceContainer">
+              <div
+                className={
+                  askTheAudience ? "askTheAudience" : "askTheAudienceHidden"
+                }
+              >
+                <div className="itemContainer">
+                  <div className="item">A</div>
+                  <div className="item">A</div>
+                  <div className="item">A</div>
+                  <div className="item">A</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="secondSection">
             <div className="timer">{timer}</div>
             <div className="singleQuestionContainer">

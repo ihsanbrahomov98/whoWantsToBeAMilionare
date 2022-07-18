@@ -12,14 +12,22 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-content: center;
-  align-items: flex-start;
+  align-items: start;
 }
 .firstSection {
   flex: 1;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  margin: auto;
+  height: 100%;
+  width: 50%;
+  color: white;
+  display: flex;
 }
 .secondSection {
   padding: 80px;
-  flex: 2;
+  flex: 1;
   flex-direction: column;
   display: flex;
 }
