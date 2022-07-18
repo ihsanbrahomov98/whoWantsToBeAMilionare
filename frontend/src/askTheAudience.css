@@ -33,7 +33,7 @@
   justify-content: space-around;
 }
 .itemOne {
-  animation: myAnim 1s ease 188ms 1 alternate forwards;
+  animation: myAnim 1s ease 188ms 5 alternate forwards;
   height: 140px;
   width: 30px;
   display: flex;
@@ -42,7 +42,7 @@
   background-color: orange;
 }
 .itemTwo {
-  animation: myAnim 1s ease 388ms 3 alternate forwards;
+  animation: myAnim 1s ease 388ms 5 alternate forwards;
   height: 140px;
   width: 30px;
   display: flex;
@@ -63,7 +63,8 @@
 }
 
 .itemFour {
-  height: 70px;
+  animation: myAnim 1s ease 788ms 5 alternate forwards;
+  height: 140px;
   width: 30px;
   display: flex;
   align-items: end;

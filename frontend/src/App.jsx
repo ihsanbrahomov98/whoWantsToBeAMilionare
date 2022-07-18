@@ -33,12 +33,20 @@ const App = () => {
   const [stopTimer, setStopTimer] = useState(false);
   const [askTheAudienceProbabilityА, setAskTheAudienceProbabilityА] =
     useState(0);
-  const [askTheAudienceProbabilityB, setAskTheAudienceProbabilityB] =
-    useState(0);
-  const [askTheAudienceProbabilityC, setAskTheAudienceProbabilityC] =
-    useState(0);
-  const [askTheAudienceProbabilityD, setAskTheAudienceProbabilityD] =
-    useState(0);
+  const [firstItem, setFirstItem] = useState({ value: 0, index: 0 });
+  const [askTheAudienceProbabilityB, setAskTheAudienceProbabilityB] = useState({
+    value: 0,
+    index: 1,
+  });
+  const [askTheAudienceProbabilityC, setAskTheAudienceProbabilityC] = useState({
+    value: 0,
+    index: 2,
+  });
+  const [askTheAudienceProbabilityD, setAskTheAudienceProbabilityD] = useState({
+    value: 0,
+    index: 3,
+  });
+
   const checkingAnswer = (answer, id) => {
     if (id === "first") {
       setBackGroundColorOfAQuestionToOrangeOne(true);
@@ -185,6 +193,7 @@ const App = () => {
     ];
   };
   const secondLifeLine = () => {
+    let points = 100;
     setAskTheAudience(true);
     let rightAnswer = [];
     let wrongAnswer = [];
@@ -206,8 +215,94 @@ const App = () => {
       }
     }
 
-    const probability = (answer) => {
+    const probabilityOfWrongAnswer = (answer) => {
+      if (answer.wrong.correct === false) {
+        console.log("wrong answers ar:");
+        console.log(oneQuestionFourAnswers[question].answers[0]);
+        const i = answer.index;
+        const difficultyOfTheQuestion =
+          oneQuestionFourAnswers[question].degreeOfComplexity * 0.01;
+        let randomNum = Math.floor(Math.random() * 10);
+        let secondRandomNum = Math.floor(Math.random() * 10);
+        console.log(" secondRandomNum");
+        console.log(secondRandomNum);
+        const change =
+          difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
+        setTotalPoints({ amount: totalPoints.amount - change, index: i });
+
+        if (secondRandomNum <= 4) {
+          console.log("parvo");
+          const firstChange = Math.round((change / 3) * 1.5);
+          const sChange = Math.round((change / 3) * 1);
+          const cChange = Math.round((change / 3) * 0.5);
+
+          setAskTheAudienceProbabilityB({
+            value: firstChange - askTheAudienceProbabilityА,
+            index: 0,
+          });
+          setAskTheAudienceProbabilityC({
+            value: sChange - askTheAudienceProbabilityА,
+            index: 1,
+          });
+          setAskTheAudienceProbabilityD({
+            value: cChange - askTheAudienceProbabilityА,
+            index: 2,
+          });
+          setFirstItem({
+            value: 100 - (firstChange + sChange + cChange),
+            index: 0,
+          });
+        }
+        if (secondRandomNum === 5) {
+          console.log("vtoro");
+          const firstChange = Math.round((change / 3) * 1);
+          const sChange = Math.round((change / 3) * 1.5);
+          const cChange = Math.round((change / 3) * 0.5);
+          setAskTheAudienceProbabilityB({
+            value: firstChange - askTheAudienceProbabilityА,
+            index: 0,
+          });
+          setAskTheAudienceProbabilityC({
+            value: sChange - askTheAudienceProbabilityА,
+            index: 1,
+          });
+          setAskTheAudienceProbabilityD({
+            value: cChange - askTheAudienceProbabilityА,
+            index: 2,
+          });
+          setFirstItem({
+            value: 100 - (firstChange + sChange + cChange),
+            index: 0,
+          });
+        }
+        if (secondRandomNum >= 6) {
+          console.log("treto");
+          const firstChange = Math.round((change / 3) * 0.5);
+          const sChange = Math.round((change / 3) * 1);
+          const cChange = Math.round((change / 3) * 1.5);
+
+          setAskTheAudienceProbabilityB({
+            value: firstChange - askTheAudienceProbabilityА,
+            index: 0,
+          });
+          setAskTheAudienceProbabilityC({
+            value: sChange - askTheAudienceProbabilityА,
+            index: 1,
+          });
+          setAskTheAudienceProbabilityD({
+            value: cChange - askTheAudienceProbabilityА,
+            index: 2,
+          });
+          setFirstItem({
+            value: 100 - (firstChange + sChange + cChange),
+            index: 0,
+          });
+        }
+      }
+    };
+    const probabilityOfRightAnswer = (answer) => {
       if (answer.correctAnswer.correct === true) {
+        const i = answer.index;
         const difficultyOfTheQuestion =
           oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
         let randomNum = Math.random();
@@ -215,18 +310,27 @@ const App = () => {
         const change =
           difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
 
-        setTotalPoints({ amount: totalPoints.amount - change, index: 3 });
-      }
-      console.log(totalPoints);
-      // if (difficultyOfTheQuestion <= randomNum) {
-      //   let boom =
-      //     difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
-      // }
-      // console.log(totalPoints);
-    };
+        const ponits = totalPoints.amount - change;
 
-    probability(rightAnswer[0]);
+        console.log(askTheAudienceProbabilityB);
+      }
+    };
+    probabilityOfRightAnswer(rightAnswer[0]);
+    probabilityOfWrongAnswer(wrongAnswer[0]);
   };
+  // useEffect(() => {
+  //   const shufflingSecondLifeLINE = () => {
+  //     let array = [];
+  //     console.log("askTheAudienceProbabilityB");
+  //     console.log(askTheAudienceProbabilityB);
+  //     if (askTheAudienceProbabilityB) {
+  //       array.push(askTheAudienceProbabilityB);
+  //     }
+  //     console.log("array");
+  //     console.log(array);
+  //   };
+  //   shufflingSecondLifeLINE();
+  // }, [setAskTheAudience, askTheAudience]);
 
   return (
     <>
@@ -253,12 +357,32 @@ const App = () => {
                 }
               >
                 <div className="itemContainer">
-                  <div style={{ height: "40px" }} className="itemOne">
-                    A
+                  <div
+                    style={{ height: firstItem.value * 2.5 }}
+                    className="itemOne"
+                  >
+                    {firstItem.value}
                   </div>
-                  <div className="itemTwo">A</div>
-                  <div className="itemThree">A</div>
-                  <div className="itemFour">A</div>
+                  <div
+                    style={{ height: askTheAudienceProbabilityB.value * 2.5 }}
+                    className="itemTwo"
+                  >
+                    {" "}
+                    {askTheAudienceProbabilityB.value}
+                  </div>
+                  <div
+                    style={{ height: askTheAudienceProbabilityC.value * 2.5 }}
+                    className="itemThree"
+                  >
+                    {askTheAudienceProbabilityC.value}
+                  </div>
+                  <div
+                    style={{ height: askTheAudienceProbabilityD.value * 2.5 }}
+                    className="itemFour"
+                  >
+                    {askTheAudienceProbabilityD.value}
+                  </div>
+                  <div>{totalPoints.amount}</div>
                 </div>
               </div>
             </div>

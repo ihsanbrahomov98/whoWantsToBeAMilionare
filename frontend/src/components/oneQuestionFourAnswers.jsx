@@ -1,7 +1,7 @@
 const oneQuestionFourAnswers = [
   {
     id: 1,
-    degreeOfComplexity: 9,
+    degreeOfComplexity: 45,
     question:
       "A person with well-developed abdominal muscles is said to have a what?",
     answers: [
@@ -25,7 +25,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 2,
-    degreeOfComplexity: 2,
+    degreeOfComplexity: 7,
     question:
       "A person with well-developed abdominal muscles is said to have a what2?",
     answers: [
