@@ -7,6 +7,7 @@ import "./askTheAudience.css";
 
 const App = () => {
   const [question, setQuestion] = useState(0);
+  const [totalPoints, setTotalPoints] = useState({ amount: 100, index: 0 });
   const [oneQuestionFourAnswersSelected, setOneQuestionFourAnswersSelected] =
     useState(oneQuestionFourAnswers[0]);
   const [timer, setTimer] = useState(10);
@@ -188,27 +189,43 @@ const App = () => {
     let rightAnswer = [];
     let wrongAnswer = [];
     console.log(rightAnswer);
-    const difficultyOfTheQuestion =
-      oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
+    console.log(wrongAnswer);
     for (let i = 0; i <= 3; i++) {
       if (oneQuestionFourAnswers[question].answers[i].correct === true) {
         let correctAnswer = oneQuestionFourAnswers[question].answers[i];
         rightAnswer.push({ correctAnswer, index: i });
-      }else{
+      }
+    }
+    for (let i = 0; i <= 3; i++) {
+      if (
+        oneQuestionFourAnswers[question].answers[i].correct === false &&
+        oneQuestionFourAnswers[question].answers[i].body.length >= 1
+      ) {
         let wrong = oneQuestionFourAnswers[question].answers[i];
         wrongAnswer.push({ wrong, index: i });
       }
     }
 
- 
+    const probability = (answer) => {
+      if (answer.correctAnswer.correct === true) {
+        const difficultyOfTheQuestion =
+          oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
+        let randomNum = Math.random();
+        console.log(difficultyOfTheQuestion);
+        const change =
+          difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
 
-    let randomNum = Math.random();
-    console.log(difficultyOfTheQuestion);
+        setTotalPoints({ amount: totalPoints.amount - change, index: 3 });
+      }
+      console.log(totalPoints);
+      // if (difficultyOfTheQuestion <= randomNum) {
+      //   let boom =
+      //     difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
+      // }
+      // console.log(totalPoints);
+    };
 
-    if (difficultyOfTheQuestion <= randomNum) {
-      let boom = difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
-    } else {
-    }
+    probability(rightAnswer[0]);
   };
 
   return (
