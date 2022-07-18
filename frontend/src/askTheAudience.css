@@ -1,6 +1,6 @@
 @keyframes myAnim {
   0% {
-    transform: scaleY(0.4);
+    transform: scaleY(0.1);
     transform-origin: 0% 100%;
   }
 
@@ -32,9 +32,38 @@
   width: 200px;
   justify-content: space-around;
 }
-.item {
-  animation: myAnim 1s ease 0s infinite alternate forwards;
+.itemOne {
+  animation: myAnim 1s ease 188ms 1 alternate forwards;
   height: 140px;
+  width: 30px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background-color: orange;
+}
+.itemTwo {
+  animation: myAnim 1s ease 388ms 3 alternate forwards;
+  height: 140px;
+  width: 30px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background-color: orange;
+}
+
+.itemThree {
+  animation: myAnim 1s ease 788ms 5 alternate forwards;
+
+  height: 140px;
+  width: 30px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background-color: orange;
+}
+
+.itemFour {
+  height: 70px;
   width: 30px;
   display: flex;
   align-items: end;

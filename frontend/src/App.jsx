@@ -30,7 +30,14 @@ const App = () => {
   const [firstLiveLine, setFirstLiveLine] = useState(true);
   const [askTheAudience, setAskTheAudience] = useState(false);
   const [stopTimer, setStopTimer] = useState(false);
-
+  const [askTheAudienceProbabilityА, setAskTheAudienceProbabilityА] =
+    useState(0);
+  const [askTheAudienceProbabilityB, setAskTheAudienceProbabilityB] =
+    useState(0);
+  const [askTheAudienceProbabilityC, setAskTheAudienceProbabilityC] =
+    useState(0);
+  const [askTheAudienceProbabilityD, setAskTheAudienceProbabilityD] =
+    useState(0);
   const checkingAnswer = (answer, id) => {
     if (id === "first") {
       setBackGroundColorOfAQuestionToOrangeOne(true);
@@ -178,15 +185,29 @@ const App = () => {
   };
   const secondLifeLine = () => {
     setAskTheAudience(true);
+    let rightAnswer = [];
+    let wrongAnswer = [];
+    console.log(rightAnswer);
     const difficultyOfTheQuestion =
       oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
-    console.log(difficultyOfTheQuestion);
+    for (let i = 0; i <= 3; i++) {
+      if (oneQuestionFourAnswers[question].answers[i].correct === true) {
+        let correctAnswer = oneQuestionFourAnswers[question].answers[i];
+        rightAnswer.push({ correctAnswer, index: i });
+      }else{
+        let wrong = oneQuestionFourAnswers[question].answers[i];
+        wrongAnswer.push({ wrong, index: i });
+      }
+    }
+
+ 
+
     let randomNum = Math.random();
-    console.log(randomNum);
+    console.log(difficultyOfTheQuestion);
+
     if (difficultyOfTheQuestion <= randomNum) {
-      console.log("correct");
+      let boom = difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
     } else {
-      console.log("wrong");
     }
   };
 
@@ -215,10 +236,12 @@ const App = () => {
                 }
               >
                 <div className="itemContainer">
-                  <div className="item">A</div>
-                  <div className="item">A</div>
-                  <div className="item">A</div>
-                  <div className="item">A</div>
+                  <div style={{ height: "40px" }} className="itemOne">
+                    A
+                  </div>
+                  <div className="itemTwo">A</div>
+                  <div className="itemThree">A</div>
+                  <div className="itemFour">A</div>
                 </div>
               </div>
             </div>
