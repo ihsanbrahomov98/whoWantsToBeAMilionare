@@ -218,7 +218,7 @@ const App = () => {
     const probabilityOfWrongAnswer = (answer) => {
       if (answer.wrong.correct === false) {
         console.log("wrong answers ar:");
-        console.log(oneQuestionFourAnswers[question].answers[0]);
+        console.log(oneQuestionFourAnswers[question].answers[0].body);
         const i = answer.index;
         const difficultyOfTheQuestion =
           oneQuestionFourAnswers[question].degreeOfComplexity * 0.01;
@@ -238,19 +238,19 @@ const App = () => {
 
           setAskTheAudienceProbabilityB({
             value: firstChange - askTheAudienceProbabilityА,
-            index: 0,
+            index: oneQuestionFourAnswers[question].answers[0].body,
           });
           setAskTheAudienceProbabilityC({
             value: sChange - askTheAudienceProbabilityА,
-            index: 1,
+            index: oneQuestionFourAnswers[question].answers[1].body,
           });
           setAskTheAudienceProbabilityD({
             value: cChange - askTheAudienceProbabilityА,
-            index: 2,
+            index: oneQuestionFourAnswers[question].answers[2].body,
           });
           setFirstItem({
             value: 100 - (firstChange + sChange + cChange),
-            index: 0,
+            index: oneQuestionFourAnswers[question].answers[3].body,
           });
         }
         if (secondRandomNum === 5) {
@@ -258,21 +258,22 @@ const App = () => {
           const firstChange = Math.round((change / 3) * 1);
           const sChange = Math.round((change / 3) * 1.5);
           const cChange = Math.round((change / 3) * 0.5);
+
           setAskTheAudienceProbabilityB({
             value: firstChange - askTheAudienceProbabilityА,
-            index: 0,
+            index: oneQuestionFourAnswers[question].answers[0].body,
           });
           setAskTheAudienceProbabilityC({
             value: sChange - askTheAudienceProbabilityА,
-            index: 1,
+            index: oneQuestionFourAnswers[question].answers[1].body,
           });
           setAskTheAudienceProbabilityD({
             value: cChange - askTheAudienceProbabilityА,
-            index: 2,
+            index: oneQuestionFourAnswers[question].answers[2].body,
           });
           setFirstItem({
             value: 100 - (firstChange + sChange + cChange),
-            index: 0,
+            index: oneQuestionFourAnswers[question].answers[3].body,
           });
         }
         if (secondRandomNum >= 6) {
@@ -283,19 +284,19 @@ const App = () => {
 
           setAskTheAudienceProbabilityB({
             value: firstChange - askTheAudienceProbabilityА,
-            index: 0,
+            index: oneQuestionFourAnswers[question].answers[0].body,
           });
           setAskTheAudienceProbabilityC({
             value: sChange - askTheAudienceProbabilityА,
-            index: 1,
+            index: oneQuestionFourAnswers[question].answers[1].body,
           });
           setAskTheAudienceProbabilityD({
             value: cChange - askTheAudienceProbabilityА,
-            index: 2,
+            index: oneQuestionFourAnswers[question].answers[2].body,
           });
           setFirstItem({
             value: 100 - (firstChange + sChange + cChange),
-            index: 0,
+            index: oneQuestionFourAnswers[question].answers[3].body,
           });
         }
       }
@@ -318,19 +319,36 @@ const App = () => {
     probabilityOfRightAnswer(rightAnswer[0]);
     probabilityOfWrongAnswer(wrongAnswer[0]);
   };
-  // useEffect(() => {
-  //   const shufflingSecondLifeLINE = () => {
-  //     let array = [];
-  //     console.log("askTheAudienceProbabilityB");
-  //     console.log(askTheAudienceProbabilityB);
-  //     if (askTheAudienceProbabilityB) {
-  //       array.push(askTheAudienceProbabilityB);
-  //     }
-  //     console.log("array");
-  //     console.log(array);
-  //   };
-  //   shufflingSecondLifeLINE();
-  // }, [setAskTheAudience, askTheAudience]);
+  useEffect(() => {
+    const shufflingSecondLifeLINE = () => {
+      let array = [];
+      console.log("askTheAudienceProbabilityB");
+      console.log(askTheAudienceProbabilityB);
+      if (askTheAudienceProbabilityB.index) {
+        array.push(askTheAudienceProbabilityB);
+      } else {
+        array.push(" false");
+      }
+      if (askTheAudienceProbabilityC.index) {
+        array.push(askTheAudienceProbabilityC);
+      } else {
+        array.push(" false");
+      }
+      if (askTheAudienceProbabilityD.index) {
+        array.push(askTheAudienceProbabilityD);
+      } else {
+        array.push(" false");
+      }
+      if (firstItem.index) {
+        array.push(firstItem);
+      } else {
+        array.push(" false");
+      }
+      console.log("array");
+      console.log(array);
+    };
+    shufflingSecondLifeLINE();
+  }, [setAskTheAudience, askTheAudience]);
 
   return (
     <>
