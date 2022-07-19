@@ -40,6 +40,7 @@ const App = () => {
   const [secondLiveLine, setSecondtLiveLine] = useState(true);
   const [askTheAudience, setAskTheAudience] = useState(false);
   const [stopTimer, setStopTimer] = useState(false);
+  const [askTheFriend, setAskTheFriend] = useState(false);
   const [askTheAudienceProbabilityА, setAskTheAudienceProbabilityА] =
     useState(0);
   const [firstItem, setFirstItem] = useState({ value: 0, index: 0 });
@@ -445,7 +446,29 @@ const App = () => {
     };
     shufflingSecondLifeLINE();
   }, [setAskTheAudience, askTheAudience]);
-  const thirdLifeLine = () => {};
+  const thirdLifeLine = () => {
+    setAskTheFriend(true);
+    let array = [];
+    for (let i = 0; i <= 3; i++) {
+      if (oneQuestionFourAnswersSelected.answers[i].body) {
+        const difficultyOfTheQuestion =
+          oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
+
+        let randomNumber = Math.floor(Math.random() * 10);
+        let sumOfRandomNumberAndDiff = randomNumber + difficultyOfTheQuestion;
+        if (
+          sumOfRandomNumberAndDiff >= 5 &&
+          oneQuestionFourAnswersSelected.answers[i].correct === true
+        ) {
+          array.push(oneQuestionFourAnswersSelected.answers[i]);
+        }
+
+        console.log(difficultyOfTheQuestion);
+        console.log(oneQuestionFourAnswersSelected.answers[i].body);
+      }
+    }
+    console.log(array);
+  };
 
   return (
     <>
@@ -560,6 +583,16 @@ const App = () => {
                 </div>
               </div>
               <div>23</div>
+            </div>
+            {/* second life line */}
+            <div className="askTheFriendContainer">
+              <div
+                className={askTheFriend ? "askTheFriend" : "askTheFriendHidden"}
+              >
+                <div className="itemContainerForFriend">
+                  I think the answer is :{}
+                </div>
+              </div>
             </div>
           </div>
           <div className="secondSection">

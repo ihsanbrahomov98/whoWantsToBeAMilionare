@@ -9,14 +9,15 @@
     transform-origin: 0% 100%;
   }
 }
-.askTheAudienceContainer {
+.askTheFriendContainer {
   display: flex;
   height: 500;
   width: 500;
   flex-direction: column;
+
   z-index: 23;
 }
-.askTheAudience {
+.askTheFriend {
   display: flex;
   color: white;
   flex-direction: column;
@@ -29,114 +30,18 @@
 
   z-index: 3;
 }
-.askTheAudienceHidden {
+.askTheFriendHidden {
   display: none;
   background-color: yellow;
 }
 
-.itemContainer {
-  position: absolute;
+.itemContainerForFriend {
+  position: relative;
   display: flex;
-  align-items: end;
-  flex-direction: column;
+  align-items: center;
+  flex-direction: row;
   width: 250px;
-  justify-content: space-around;
-}
-.itemOne {
-  animation: myAnim 1s ease 200ms 7 alternate forwards;
-  height: 140px;
-  width: 37px;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  background-color: orange;
-}
-
-.itemTwo {
-  animation: myAnim 1s ease 400ms 7 alternate forwards;
-  height: 140px;
-  width: 37px;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  background-color: orange;
-}
-
-.itemThree {
-  animation: myAnim 1s ease 800ms 7 alternate forwards;
-
-  height: 140px;
-  width: 37px;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  background-color: orange;
-}
-
-.itemFour {
-  animation: myAnim 1s ease 1000ms 7 alternate forwards;
-  height: 140px;
-  width: 37px;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  background-color: orange;
-}
-.firstContainerRow {
-  padding-top: 5px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-
-  height: 20px;
-}
-.secondContainerRow {
-  position: relative;
-  display: flex;
-
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: end;
-  width: 100%;
-
-  height: 145px;
-}
-.thirdContainerRow {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-  background-color: black;
-  height: 20px;
-}
-.answerItem {
-  width: 37px;
-  display: flex;
-  align-items: start;
+  color: #e7863a;
+  height: 100%;
   justify-content: center;
 }
-/* 
-if (copiedObject.answers[i].body === rightAnswerMap[0].body) {
-  console.log("right");
-  console.log(copiedObject.answers[i].body);
-  newArray.push({
-    body: copiedObject.answers[i].body,
-    correct: true,
-  });
-} else if (copiedObject.answers[i].body === wrongAnswerMap[0].body) {
-  console.log("wrong");
-  console.log(copiedObject.answers[i].bod);
-  newArray.push({
-    body: copiedObject.answers[i].body,
-    correct: false,
-  });
-} else {
-  newArray.push({
-    body: "",
-    correct: false,
-  });
-  console.log(copiedObject.answers[i].body);
-} */
