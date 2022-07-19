@@ -365,19 +365,28 @@ const App = () => {
       let fiftyFiftyArray = [];
       for (let i = 0; i <= 3; i++) {
         if (!array[i].removed === true) {
-          console.log(array[i].value);
           anotherArray.push(array[i]);
         } else {
           fiftyFiftyArray.push(array[i]);
+          anotherArray.push({ arr: array[i], deleted: true });
         }
       }
+      console.log(anotherArray);
+      console.log(fiftyFiftyArray);
       if (fiftyFiftyArray.length > 1) {
-        console.log(anotherArray[0]);
-        console.log(anotherArray[1]);
-        console.log(fiftyFiftyArray[0].value);
-        console.log(fiftyFiftyArray[1].value);
         let sumUp = fiftyFiftyArray[0].value + fiftyFiftyArray[1].value;
-        console.log(sumUp);
+        let odd = 0;
+        const checkingIfEven = sumUp % 2 === 0;
+        const checkingIfOdd = sumUp % 2 === 1;
+        if (checkingIfOdd) {
+          sumUp = Math.floor(sumUp / 2);
+          odd = odd + 1;
+        }
+        if (checkingIfEven) {
+          sumUp = sumUp / 2;
+        }
+        console.log(anotherArray[0].value + sumUp + odd);
+        console.log(anotherArray[1].value + sumUp);
       }
       console.log(anotherArray);
     };

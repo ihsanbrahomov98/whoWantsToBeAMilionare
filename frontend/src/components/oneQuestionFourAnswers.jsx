@@ -30,7 +30,7 @@ const oneQuestionFourAnswers = [
       "A person with well-developed abdominal muscles is said to have a what2?",
     answers: [
       {
-        body: "One-pack",
+        body: "vqrno",
         correct: true,
       },
       {
@@ -78,11 +78,11 @@ const oneQuestionFourAnswers = [
       "A person with well-developed abdominal muscles is said to have a what?3",
     answers: [
       {
-        body: "One-pack",
+        body: "vqrno",
         correct: true,
       },
       {
-        body: "Six-pack",
+        body: "ne e",
         correct: false,
       },
       {
