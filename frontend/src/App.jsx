@@ -368,27 +368,38 @@ const App = () => {
           anotherArray.push(array[i]);
         } else {
           fiftyFiftyArray.push(array[i]);
-          anotherArray.push({ arr: array[i], deleted: true });
         }
       }
       console.log(anotherArray);
       console.log(fiftyFiftyArray);
+      const lastCopyArray = [];
       if (fiftyFiftyArray.length > 1) {
         let sumUp = fiftyFiftyArray[0].value + fiftyFiftyArray[1].value;
-        let odd = 0;
+
         const checkingIfEven = sumUp % 2 === 0;
         const checkingIfOdd = sumUp % 2 === 1;
         if (checkingIfOdd) {
-          sumUp = Math.floor(sumUp / 2);
-          odd = odd + 1;
+          sumUp = sumUp / 2;
         }
         if (checkingIfEven) {
           sumUp = sumUp / 2;
         }
-        console.log(anotherArray[0].value + sumUp + odd);
+        console.log(anotherArray[0].value + sumUp);
         console.log(anotherArray[1].value + sumUp);
+        for (let i = 0; i <= 3; i++) {
+          if (array[i].index) {
+            console.log(i);
+            lastCopyArray.push({
+              index: array[i].index,
+              value: array[i].value + sumUp,
+            });
+          } else {
+            lastCopyArray.push("false");
+          }
+        }
       }
-      console.log(anotherArray);
+
+      console.log(lastCopyArray);
     };
     shufflingSecondLifeLINE();
   }, [setAskTheAudience, askTheAudience]);
