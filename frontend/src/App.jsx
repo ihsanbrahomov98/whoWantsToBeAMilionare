@@ -38,6 +38,7 @@ const App = () => {
     value: 0,
     index: 1,
   });
+
   const [askTheAudienceProbabilityC, setAskTheAudienceProbabilityC] = useState({
     value: 0,
     index: 2,
@@ -327,25 +328,58 @@ const App = () => {
       if (askTheAudienceProbabilityB.index) {
         array.push(askTheAudienceProbabilityB);
       } else {
-        array.push(" false");
+        array.push({
+          value: askTheAudienceProbabilityB.value,
+          index: askTheAudienceProbabilityB.index,
+          removed: true,
+        });
       }
       if (askTheAudienceProbabilityC.index) {
         array.push(askTheAudienceProbabilityC);
       } else {
-        array.push(" false");
+        array.push({
+          value: askTheAudienceProbabilityC.value,
+          index: askTheAudienceProbabilityC.index,
+          removed: true,
+        });
       }
       if (askTheAudienceProbabilityD.index) {
         array.push(askTheAudienceProbabilityD);
       } else {
-        array.push(" false");
+        array.push({
+          value: askTheAudienceProbabilityD.value,
+          index: askTheAudienceProbabilityD.index,
+          removed: true,
+        });
       }
       if (firstItem.index) {
         array.push(firstItem);
       } else {
-        array.push(" false");
+        array.push({
+          value: firstItem.value,
+          index: firstItem.index,
+          removed: true,
+        });
       }
-      console.log("array");
-      console.log(array);
+      let anotherArray = [];
+      let fiftyFiftyArray = [];
+      for (let i = 0; i <= 3; i++) {
+        if (!array[i].removed === true) {
+          console.log(array[i].value);
+          anotherArray.push(array[i]);
+        } else {
+          fiftyFiftyArray.push(array[i]);
+        }
+      }
+      if (fiftyFiftyArray.length > 1) {
+        console.log(anotherArray[0]);
+        console.log(anotherArray[1]);
+        console.log(fiftyFiftyArray[0].value);
+        console.log(fiftyFiftyArray[1].value);
+        let sumUp = fiftyFiftyArray[0].value + fiftyFiftyArray[1].value;
+        console.log(sumUp);
+      }
+      console.log(anotherArray);
     };
     shufflingSecondLifeLINE();
   }, [setAskTheAudience, askTheAudience]);
