@@ -36,6 +36,7 @@ const App = () => {
     setBackGroundColorOfAQuestionToOrangeFour,
   ] = useState(false);
   const [firstLiveLine, setFirstLiveLine] = useState(true);
+  const [secondLiveLine, setSecondtLiveLine] = useState(false);
   const [askTheAudience, setAskTheAudience] = useState(false);
   const [stopTimer, setStopTimer] = useState(false);
   const [askTheAudienceProbabilityА, setAskTheAudienceProbabilityА] =
@@ -470,55 +471,89 @@ const App = () => {
               >
                 <div className="itemContainer">
                   <div className="firstContainerRow">
-                    <div>A</div>
-                    <div>B</div>
-                    <div>C</div>
-                    <div>D</div>
+                    <div
+                      style={{
+                        display: loadingResultFromAskTheAudince
+                          ? "none"
+                          : "flex",
+                      }}
+                      className="answerItem"
+                    >
+                      {firstItem.value}%
+                    </div>
+                    <div
+                      style={{
+                        display: loadingResultFromAskTheAudince
+                          ? "none"
+                          : "flex",
+                      }}
+                      className="answerItem"
+                    >
+                      {askTheAudienceProbabilityB.value}%
+                    </div>
+                    <div
+                      style={{
+                        display: loadingResultFromAskTheAudince
+                          ? "none"
+                          : "flex",
+                      }}
+                      className="answerItem"
+                    >
+                      {askTheAudienceProbabilityC.value}%
+                    </div>
+                    <div
+                      style={{
+                        display: loadingResultFromAskTheAudince
+                          ? "none"
+                          : "flex",
+                      }}
+                      className="answerItem"
+                    >
+                      {askTheAudienceProbabilityD.value}%
+                    </div>
                   </div>
-                  <div className="secondContainerRow"></div>
-                  <div className="thirdContainerRow"></div>
-                  <div
-                    style={{
-                      height: loadingResultFromAskTheAudince
-                        ? heightValuesFirst
-                        : firstItem.value * 1.4,
-                    }}
-                    className="itemOne"
-                  >
-                    {firstItem.value}
+                  <div className="secondContainerRow">
+                    <div
+                      style={{
+                        height: loadingResultFromAskTheAudince
+                          ? heightValuesFirst
+                          : firstItem.value * 1.4,
+                      }}
+                      className="itemOne"
+                    ></div>
+                    <div
+                      style={{
+                        height: loadingResultFromAskTheAudince
+                          ? heightValuesSecond
+                          : askTheAudienceProbabilityB.value * 1.4,
+                      }}
+                      className="itemTwo"
+                    >
+                      {" "}
+                    </div>
+                    <div
+                      style={{
+                        height: loadingResultFromAskTheAudince
+                          ? heightValuesThird
+                          : askTheAudienceProbabilityC.value * 1.4,
+                      }}
+                      className="itemThree"
+                    ></div>
+                    <div
+                      style={{
+                        height: loadingResultFromAskTheAudince
+                          ? heightValuesFourth
+                          : askTheAudienceProbabilityD.value * 1.4,
+                      }}
+                      className="itemFour"
+                    ></div>
                   </div>
-                  <div
-                    style={{
-                      height: loadingResultFromAskTheAudince
-                        ? heightValuesSecond
-                        : askTheAudienceProbabilityB.value * 1.4,
-                    }}
-                    className="itemTwo"
-                  >
-                    {" "}
-                    {askTheAudienceProbabilityB.value}
+                  <div className="thirdContainerRow">
+                    <div className="answerItem">A</div>
+                    <div className="answerItem">B</div>
+                    <div className="answerItem">C</div>
+                    <div className="answerItem">D</div>
                   </div>
-                  <div
-                    style={{
-                      height: loadingResultFromAskTheAudince
-                        ? heightValuesThird
-                        : askTheAudienceProbabilityC.value * 1.4,
-                    }}
-                    className="itemThree"
-                  >
-                    {askTheAudienceProbabilityC.value}
-                  </div>
-                  <div
-                    style={{
-                      height: loadingResultFromAskTheAudince
-                        ? heightValuesFourth
-                        : askTheAudienceProbabilityD.value * 1.4,
-                    }}
-                    className="itemFour"
-                  >
-                    {askTheAudienceProbabilityD.value}
-                  </div>
-                  <div className="newLine">{totalPoints.amount}</div>
                 </div>
               </div>
               <div>23</div>
@@ -615,7 +650,9 @@ const App = () => {
             ></div>
             <div
               onClick={() => secondLifeLine()}
-              className="secondlifeline"
+              className={
+                secondLiveLine ? "secondlifeline" : "secondlifelineIncorrect"
+              }
             ></div>
             <div className="thirdlifeline"></div>
           </div>
