@@ -33,7 +33,7 @@
   justify-content: space-around;
 }
 .itemOne {
-  animation: myAnim 1s ease 188ms 5 alternate forwards;
+  animation: myAnim 1s ease 200ms 7 alternate forwards;
   height: 140px;
   width: 30px;
   display: flex;
@@ -41,8 +41,9 @@
   justify-content: center;
   background-color: orange;
 }
+
 .itemTwo {
-  animation: myAnim 1s ease 388ms 5 alternate forwards;
+  animation: myAnim 1s ease 400ms 7 alternate forwards;
   height: 140px;
   width: 30px;
   display: flex;
@@ -52,7 +53,7 @@
 }
 
 .itemThree {
-  animation: myAnim 1s ease 788ms 5 alternate forwards;
+  animation: myAnim 1s ease 800ms 7 alternate forwards;
 
   height: 140px;
   width: 30px;
@@ -63,7 +64,7 @@
 }
 
 .itemFour {
-  animation: myAnim 1s ease 788ms 5 alternate forwards;
+  animation: myAnim 1s ease 1000ms 7 alternate forwards;
   height: 140px;
   width: 30px;
   display: flex;

@@ -11,6 +11,15 @@ const App = () => {
   const [oneQuestionFourAnswersSelected, setOneQuestionFourAnswersSelected] =
     useState(oneQuestionFourAnswers[0]);
   const [timer, setTimer] = useState(10);
+  const [heightValues, setHeightValues] = useState({
+    first: 140,
+    second: 140,
+    third: 140,
+    fourth: 140,
+  });
+  const [loadingResultFromAskTheAudince, setLoadingResultFromAskTheAudince] =
+    useState(true);
+
   const [newQuestion, setNewQuestion] = useState(false);
   const [
     backGroundColorOfAQuestionToOrangeOne,
@@ -194,6 +203,9 @@ const App = () => {
     ];
   };
   const secondLifeLine = () => {
+    setTimeout(() => {
+      setLoadingResultFromAskTheAudince(false);
+    }, 6700);
     let points = 100;
     setAskTheAudience(true);
     let rightAnswer = [];
@@ -370,8 +382,7 @@ const App = () => {
           fiftyFiftyArray.push(array[i]);
         }
       }
-      console.log(anotherArray);
-      console.log(fiftyFiftyArray);
+
       const lastCopyArray = [];
       if (fiftyFiftyArray.length > 1) {
         let sumUp = fiftyFiftyArray[0].value + fiftyFiftyArray[1].value;
@@ -384,8 +395,7 @@ const App = () => {
         if (checkingIfEven) {
           sumUp = sumUp / 2;
         }
-        console.log(anotherArray[0].value + sumUp);
-        console.log(anotherArray[1].value + sumUp);
+
         for (let i = 0; i <= 3; i++) {
           if (array[i].index) {
             console.log(i);
@@ -394,12 +404,41 @@ const App = () => {
               value: array[i].value + sumUp,
             });
           } else {
-            lastCopyArray.push("false");
+            lastCopyArray.push({
+              index: 0,
+              value: 0,
+            });
           }
         }
+        setFirstItem({
+          value: lastCopyArray[0].value,
+          index: oneQuestionFourAnswers[question].answers[3].body,
+        });
+        setAskTheAudienceProbabilityB({
+          value: lastCopyArray[1].value,
+          index: oneQuestionFourAnswers[question].answers[0].body,
+        });
+        setAskTheAudienceProbabilityC({
+          value: lastCopyArray[2].value,
+          index: oneQuestionFourAnswers[question].answers[1].body,
+        });
+        setAskTheAudienceProbabilityD({
+          value: lastCopyArray[3].value,
+          index: oneQuestionFourAnswers[question].answers[2].body,
+        });
+        if (!lastCopyArray[0].value) {
+          setHeightValues([{ first: 0 }, { ...heightValues }]);
+        }
+        if (!lastCopyArray[2].value) {
+          setHeightValues([{ third: 0 }, { ...heightValues }]);
+        }
+        if (!lastCopyArray[3].value) {
+          setHeightValues([{ fourth: 0 }, { ...heightValues }]);
+        }
+        console.log("askkk");
+        console.log(lastCopyArray);
       }
-
-      console.log(lastCopyArray);
+      console.log(heightValues);
     };
     shufflingSecondLifeLINE();
   }, [setAskTheAudience, askTheAudience]);
@@ -430,26 +469,42 @@ const App = () => {
               >
                 <div className="itemContainer">
                   <div
-                    style={{ height: firstItem.value * 2.5 }}
+                    style={{
+                      height: loadingResultFromAskTheAudince
+                        ? heightValues.first
+                        : firstItem.value * 2.5,
+                    }}
                     className="itemOne"
                   >
                     {firstItem.value}
                   </div>
                   <div
-                    style={{ height: askTheAudienceProbabilityB.value * 2.5 }}
+                    style={{
+                      height: loadingResultFromAskTheAudince
+                        ? heightValues.second
+                        : askTheAudienceProbabilityB.value * 2.5,
+                    }}
                     className="itemTwo"
                   >
                     {" "}
                     {askTheAudienceProbabilityB.value}
                   </div>
                   <div
-                    style={{ height: askTheAudienceProbabilityC.value * 2.5 }}
+                    style={{
+                      height: loadingResultFromAskTheAudince
+                        ? heightValues.third
+                        : askTheAudienceProbabilityC.value * 2.5,
+                    }}
                     className="itemThree"
                   >
                     {askTheAudienceProbabilityC.value}
                   </div>
                   <div
-                    style={{ height: askTheAudienceProbabilityD.value * 2.5 }}
+                    style={{
+                      height: loadingResultFromAskTheAudince
+                        ? heightValues.fourth
+                        : askTheAudienceProbabilityD.value * 2.5,
+                    }}
                     className="itemFour"
                   >
                     {askTheAudienceProbabilityD.value}
