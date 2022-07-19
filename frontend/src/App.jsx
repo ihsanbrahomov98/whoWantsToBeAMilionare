@@ -469,8 +469,8 @@ const App = () => {
         } else {
           wrongArray.push(oneQuestionFourAnswersSelected.answers[i]);
         }
-        if (i === 3 && sumOfRandomNumberAndDiff >= 5) {
-          setAskTheFriendRender(oneQuestionFourAnswersSelected.answers[i].body);
+        if (i === 3 && sumOfRandomNumberAndDiff >= 6) {
+          setAskTheFriendRender(array[0].body);
         } else {
           let shuffleArray = wrongArray.sort(() => Math.random() - 0.5);
           setAskTheFriendRender(shuffleArray[0].body);
