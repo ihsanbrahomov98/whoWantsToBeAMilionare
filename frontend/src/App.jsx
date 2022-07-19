@@ -11,12 +11,10 @@ const App = () => {
   const [oneQuestionFourAnswersSelected, setOneQuestionFourAnswersSelected] =
     useState(oneQuestionFourAnswers[0]);
   const [timer, setTimer] = useState(10);
-  const [heightValues, setHeightValues] = useState({
-    first: 140,
-    second: 140,
-    third: 140,
-    fourth: 140,
-  });
+  const [heightValuesFirst, setHeightValuesFirst] = useState(140);
+  const [heightValuesSecond, setHeightValuesSecond] = useState(140);
+  const [heightValuesThird, setHeightValuesThird] = useState(140);
+  const [heightValuesFourth, setHeightValuesFourth] = useState(140);
   const [loadingResultFromAskTheAudince, setLoadingResultFromAskTheAudince] =
     useState(true);
 
@@ -427,18 +425,20 @@ const App = () => {
           index: oneQuestionFourAnswers[question].answers[2].body,
         });
         if (!lastCopyArray[0].value) {
-          setHeightValues([{ first: 0 }, { ...heightValues }]);
+          setHeightValuesFirst(0);
+        }
+        if (!lastCopyArray[1].value) {
+          setHeightValuesSecond(0);
         }
         if (!lastCopyArray[2].value) {
-          setHeightValues([{ third: 0 }, { ...heightValues }]);
+          setHeightValuesThird(0);
         }
         if (!lastCopyArray[3].value) {
-          setHeightValues([{ fourth: 0 }, { ...heightValues }]);
+          setHeightValuesFourth(0);
         }
         console.log("askkk");
         console.log(lastCopyArray);
       }
-      console.log(heightValues);
     };
     shufflingSecondLifeLINE();
   }, [setAskTheAudience, askTheAudience]);
@@ -462,17 +462,26 @@ const App = () => {
           {/* First section */}
           <div className="firstSection">
             <div className="askTheAudienceContainer">
+              {" "}
               <div
                 className={
                   askTheAudience ? "askTheAudience" : "askTheAudienceHidden"
                 }
               >
                 <div className="itemContainer">
+                  <div className="firstContainerRow">
+                    <div>A</div>
+                    <div>B</div>
+                    <div>C</div>
+                    <div>D</div>
+                  </div>
+                  <div className="secondContainerRow"></div>
+                  <div className="thirdContainerRow"></div>
                   <div
                     style={{
                       height: loadingResultFromAskTheAudince
-                        ? heightValues.first
-                        : firstItem.value * 2.5,
+                        ? heightValuesFirst
+                        : firstItem.value * 1.4,
                     }}
                     className="itemOne"
                   >
@@ -481,8 +490,8 @@ const App = () => {
                   <div
                     style={{
                       height: loadingResultFromAskTheAudince
-                        ? heightValues.second
-                        : askTheAudienceProbabilityB.value * 2.5,
+                        ? heightValuesSecond
+                        : askTheAudienceProbabilityB.value * 1.4,
                     }}
                     className="itemTwo"
                   >
@@ -492,8 +501,8 @@ const App = () => {
                   <div
                     style={{
                       height: loadingResultFromAskTheAudince
-                        ? heightValues.third
-                        : askTheAudienceProbabilityC.value * 2.5,
+                        ? heightValuesThird
+                        : askTheAudienceProbabilityC.value * 1.4,
                     }}
                     className="itemThree"
                   >
@@ -502,16 +511,17 @@ const App = () => {
                   <div
                     style={{
                       height: loadingResultFromAskTheAudince
-                        ? heightValues.fourth
-                        : askTheAudienceProbabilityD.value * 2.5,
+                        ? heightValuesFourth
+                        : askTheAudienceProbabilityD.value * 1.4,
                     }}
                     className="itemFour"
                   >
                     {askTheAudienceProbabilityD.value}
                   </div>
-                  <div>{totalPoints.amount}</div>
+                  <div className="newLine">{totalPoints.amount}</div>
                 </div>
               </div>
+              <div>23</div>
             </div>
           </div>
           <div className="secondSection">
