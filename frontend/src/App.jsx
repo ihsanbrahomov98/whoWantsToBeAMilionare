@@ -41,6 +41,7 @@ const App = () => {
   const [askTheAudience, setAskTheAudience] = useState(false);
   const [stopTimer, setStopTimer] = useState(false);
   const [askTheFriend, setAskTheFriend] = useState(false);
+  const [askTheFreindRender, setAskTheFriendRender] = useState("a");
   const [askTheAudienceProbabilityА, setAskTheAudienceProbabilityА] =
     useState(0);
   const [firstItem, setFirstItem] = useState({ value: 0, index: 0 });
@@ -449,6 +450,7 @@ const App = () => {
   const thirdLifeLine = () => {
     setAskTheFriend(true);
     let array = [];
+    let wrongArray = [];
     for (let i = 0; i <= 3; i++) {
       if (oneQuestionFourAnswersSelected.answers[i].body) {
         const difficultyOfTheQuestion =
@@ -456,18 +458,25 @@ const App = () => {
 
         let randomNumber = Math.floor(Math.random() * 10);
         let sumOfRandomNumberAndDiff = randomNumber + difficultyOfTheQuestion;
+        console.log("sumOfRandomNumberAndDiff");
+        console.log(sumOfRandomNumberAndDiff);
         if (
-          sumOfRandomNumberAndDiff >= 5 &&
+          // sumOfRandomNumberAndDiff >= 5 &&
           oneQuestionFourAnswersSelected.answers[i].correct === true
         ) {
           array.push(oneQuestionFourAnswersSelected.answers[i]);
+          // setAskTheFriendRender(oneQuestionFourAnswersSelected.answers[i].body);
+        } else {
+          wrongArray.push(oneQuestionFourAnswersSelected.answers[i]);
         }
-
-        console.log(difficultyOfTheQuestion);
-        console.log(oneQuestionFourAnswersSelected.answers[i].body);
+        if (i === 3 && sumOfRandomNumberAndDiff >= 5) {
+          setAskTheFriendRender(oneQuestionFourAnswersSelected.answers[i].body);
+        } else {
+          let shuffleArray = wrongArray.sort(() => Math.random() - 0.5);
+          setAskTheFriendRender(shuffleArray[0].body);
+        }
       }
     }
-    console.log(array);
   };
 
   return (
@@ -590,7 +599,7 @@ const App = () => {
                 className={askTheFriend ? "askTheFriend" : "askTheFriendHidden"}
               >
                 <div className="itemContainerForFriend">
-                  I think the answer is :{}
+                  I think the answer is : {askTheFreindRender}
                 </div>
               </div>
             </div>
