@@ -27,6 +27,7 @@
   padding-top: 35px;
 }
 .firstlifeline {
+  order: 1;
   background-image: url("./images/50-50_2018.webp");
   background-color: #cccccc;
   background-position: center;
@@ -40,6 +41,7 @@
   border-radius: 50px / 25px;
 }
 .firstlifelineIncorect {
+  order: 1;
   background-image: url("./images/Classic5050used.webp");
   background-color: #cccccc;
   background-position: center;
@@ -54,6 +56,7 @@
   border-radius: 50px / 25px;
 }
 .secondlifeline {
+  order: 3;
   background-image: url("./images/ATA_2018.webp");
   background-color: #cccccc;
   background-position: center;
@@ -66,6 +69,7 @@
   border-radius: 50px / 25px;
 }
 .secondlifelineIncorrect {
+  order: 3;
   background-image: url("./images/30oDXwd.png");
   background-color: #cccccc;
   background-position: center;
@@ -74,11 +78,13 @@
   object-fit: cover;
   position: relative;
   width: 100px;
+  pointer-events: none;
   height: 50px;
   border-radius: 50px / 25px;
 }
 
 .thirdlifeline {
+  order: 2;
   background-image: url("./images/PAF_2018.webp");
 
   background-color: #cccccc;

@@ -4,6 +4,7 @@ import "./mainContainer.css";
 import oneQuestionFourAnswers from "./components/oneQuestionFourAnswers";
 import prices from "./components/prices";
 import "./askTheAudience.css";
+import "./callAFriend.css";
 
 const App = () => {
   const [question, setQuestion] = useState(0);
@@ -36,7 +37,7 @@ const App = () => {
     setBackGroundColorOfAQuestionToOrangeFour,
   ] = useState(false);
   const [firstLiveLine, setFirstLiveLine] = useState(true);
-  const [secondLiveLine, setSecondtLiveLine] = useState(false);
+  const [secondLiveLine, setSecondtLiveLine] = useState(true);
   const [askTheAudience, setAskTheAudience] = useState(false);
   const [stopTimer, setStopTimer] = useState(false);
   const [askTheAudienceProbabilityА, setAskTheAudienceProbabilityА] =
@@ -202,6 +203,7 @@ const App = () => {
     ];
   };
   const secondLifeLine = () => {
+    setSecondtLiveLine(false);
     setTimeout(() => {
       setLoadingResultFromAskTheAudince(false);
     }, 6700);
@@ -443,6 +445,7 @@ const App = () => {
     };
     shufflingSecondLifeLINE();
   }, [setAskTheAudience, askTheAudience]);
+  const thirdLifeLine = () => {};
 
   return (
     <>
@@ -654,7 +657,10 @@ const App = () => {
                 secondLiveLine ? "secondlifeline" : "secondlifelineIncorrect"
               }
             ></div>
-            <div className="thirdlifeline"></div>
+            <div
+              onClick={() => thirdLifeLine()}
+              className="thirdlifeline"
+            ></div>
           </div>
 
           {/*  Begging of the Container with the questions  */}
