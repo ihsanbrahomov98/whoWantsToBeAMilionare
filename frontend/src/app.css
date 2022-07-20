@@ -97,6 +97,20 @@
   height: 50px;
   border-radius: 50px / 25px;
 }
+.thirdlifelineIncorrect {
+  order: 2;
+  background-image: url("./images/dRckC37.png");
+
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  position: relative;
+  width: 100px;
+  height: 50px;
+  border-radius: 50px / 25px;
+}
 .moneyQuestionsNumberAndPrizeContainer {
   height: 80%;
   background-color: black;

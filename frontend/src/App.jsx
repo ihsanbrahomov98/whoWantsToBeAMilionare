@@ -38,6 +38,7 @@ const App = () => {
   ] = useState("firstQuestion");
   const [firstLiveLine, setFirstLiveLine] = useState(true);
   const [secondLiveLine, setSecondtLiveLine] = useState(true);
+  const [thirdLiveLine, setThirdLiveLIne] = useState(true);
   const [askTheAudience, setAskTheAudience] = useState(false);
   const [stopTimer, setStopTimer] = useState(false);
   const [askTheFriend, setAskTheFriend] = useState(false);
@@ -82,17 +83,19 @@ const App = () => {
     setTimeout(() => {
       if (answer === true) {
         if (id === "first") {
-          setBackGroundColorOfAQuestionToOrangeOne("firstQuestionTeal");
+          setBackGroundColorOfAQuestionToOrangeOne("firstQuestionRightAnswer");
         }
         if (id === "second") {
-          setBackGroundColorOfAQuestionToOrangeTwo("firstQuestionTeal");
+          setBackGroundColorOfAQuestionToOrangeTwo("firstQuestionRightAnswer");
         }
 
         if (id === "third") {
-          setBackGroundColorOfAQuestionToOrangeThree("firstQuestionTeal");
+          setBackGroundColorOfAQuestionToOrangeThree(
+            "firstQuestionRightAnswer"
+          );
         }
         if (id === "fourth") {
-          setBackGroundColorOfAQuestionToOrangeFour("firstQuestionTeal");
+          setBackGroundColorOfAQuestionToOrangeFour("firstQuestionRightAnswer");
         }
         setTimeout(() => {
           setQuestion(question + 1);
@@ -103,14 +106,31 @@ const App = () => {
           setBackGroundColorOfAQuestionToOrangeThree("firstQuestion");
           setBackGroundColorOfAQuestionToOrangeFour("firstQuestion");
           setStopTimer(false);
-        }, 15000);
+        }, 5000);
       } else {
-        setTimer(0);
-        setBackGroundColorOfAQuestionToOrangeOne("firstQuestion");
-        setBackGroundColorOfAQuestionToOrangeTwo("firstQuestion");
-        setBackGroundColorOfAQuestionToOrangeThree("firstQuestion");
-        setBackGroundColorOfAQuestionToOrangeFour("firstQuestion");
-        setStopTimer(false);
+        if (id === "first") {
+          setBackGroundColorOfAQuestionToOrangeOne("firstQuestionWrongAnswer");
+        }
+        if (id === "second") {
+          setBackGroundColorOfAQuestionToOrangeTwo("firstQuestionWrongAnswer");
+        }
+
+        if (id === "third") {
+          setBackGroundColorOfAQuestionToOrangeThree(
+            "firstQuestionWrongAnswer"
+          );
+        }
+        if (id === "fourth") {
+          setBackGroundColorOfAQuestionToOrangeFour("firstQuestionWrongAnswer");
+        }
+        setTimeout(() => {
+          setTimer(0);
+          setBackGroundColorOfAQuestionToOrangeOne("firstQuestion");
+          setBackGroundColorOfAQuestionToOrangeTwo("firstQuestion");
+          setBackGroundColorOfAQuestionToOrangeThree("firstQuestion");
+          setBackGroundColorOfAQuestionToOrangeFour("firstQuestion");
+          setStopTimer(false);
+        }, 5000);
       }
     }, 5000);
   };
@@ -123,7 +143,7 @@ const App = () => {
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [timer]);
+  }, [timer, setTimer]);
 
   useEffect(() => {
     setTimer(130);
@@ -221,13 +241,22 @@ const App = () => {
       (oneQuestionFourAnswers[question].answers = newArray),
     ];
   };
+  const closeTheLifeLines = () => {
+    setAskTheAudience(false);
+    setAskTheFriend(false);
+  };
   const secondLifeLine = () => {
     setSecondtLiveLine(false);
     setTimeout(() => {
       setLoadingResultFromAskTheAudince(false);
+      setTimeout(() => {
+        closeTheLifeLines();
+      }, 5000);
     }, 6700);
+
     let points = 100;
     setAskTheAudience(true);
+
     let rightAnswer = [];
     let wrongAnswer = [];
     console.log(rightAnswer);
@@ -466,33 +495,36 @@ const App = () => {
   }, [setAskTheAudience, askTheAudience]);
   const thirdLifeLine = () => {
     setAskTheFriend(true);
+    setThirdLiveLIne(false);
+    setTimeout(() => {
+      closeTheLifeLines();
+    }, 5000);
     let array = [];
     let wrongArray = [];
     for (let i = 0; i <= 3; i++) {
       if (oneQuestionFourAnswersSelected.answers[i].body) {
-        const difficultyOfTheQuestion =
-          oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
-
-        let randomNumber = Math.floor(Math.random() * 10);
-        let sumOfRandomNumberAndDiff = randomNumber + difficultyOfTheQuestion;
-        console.log("sumOfRandomNumberAndDiff");
-        console.log(sumOfRandomNumberAndDiff);
-        if (
-          // sumOfRandomNumberAndDiff >= 5 &&
-          oneQuestionFourAnswersSelected.answers[i].correct === true
-        ) {
+        if (oneQuestionFourAnswersSelected.answers[i].correct === true) {
           array.push(oneQuestionFourAnswersSelected.answers[i]);
           // setAskTheFriendRender(oneQuestionFourAnswersSelected.answers[i].body);
         } else {
           wrongArray.push(oneQuestionFourAnswersSelected.answers[i]);
         }
-        if (i === 3 && sumOfRandomNumberAndDiff >= 6) {
-          setAskTheFriendRender(array[0].body);
-        } else {
-          let shuffleArray = wrongArray.sort(() => Math.random() - 0.5);
-          setAskTheFriendRender(shuffleArray[0].body);
-        }
       }
+    }
+    const difficultyOfTheQuestion =
+      oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
+
+    let randomNumber = Math.floor(Math.random() * 10);
+    let sumOfRandomNumberAndDiff = randomNumber + difficultyOfTheQuestion;
+    console.log("sumOfRandomNumberAndDiff");
+    console.log(sumOfRandomNumberAndDiff);
+    if (sumOfRandomNumberAndDiff >= 6) {
+      setAskTheFriendRender(array[0].body);
+      console.log(array);
+    } else {
+      let shuffleArray = wrongArray.sort(() => Math.random() - 0.5);
+      setAskTheFriendRender(shuffleArray[0].body);
+      console.log(shuffleArray);
     }
   };
 
@@ -501,7 +533,10 @@ const App = () => {
       {timer === 0 ? (
         <div className="lostGame">
           <div>lost game</div>
-          <div>your score is: {notReveredPrices[question].amount}</div>
+          <div>
+            your score is:{" "}
+            {question === 0 ? 0 : notReveredPrices[question - 1].amount}
+          </div>
           <div onClick={() => startNewGame()}>play new game </div>
         </div>
       ) : (
@@ -702,7 +737,9 @@ const App = () => {
             ></div>
             <div
               onClick={() => thirdLifeLine()}
-              className="thirdlifeline"
+              className={
+                thirdLiveLine ? "thirdlifeline" : "thirdlifelineIncorrect"
+              }
             ></div>
           </div>
 

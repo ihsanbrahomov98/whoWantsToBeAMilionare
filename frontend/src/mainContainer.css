@@ -106,7 +106,7 @@
   color: white;
   background: linear-gradient(#150234, #250755);
 }
-.firstQuestionTeal {
+.firstQuestionRightAnswer {
   width: 40%;
   height: 30px;
   padding-top: 20px;
@@ -120,6 +120,22 @@
   background: linear-gradient(#150234, #250755);
   color: white;
   animation: rightAnswer 3s forwards 1;
+  animation-delay: 1s;
+}
+.firstQuestionWrongAnswer {
+  width: 40%;
+  height: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid white;
+  margin-top: 20px;
+  margin-left: 20px;
+  background: linear-gradient(#150234, #250755);
+  color: white;
+  animation: wrongAnswer 3s forwards 1;
   animation-delay: 1s;
 }
 .firstQuestionOrange {
