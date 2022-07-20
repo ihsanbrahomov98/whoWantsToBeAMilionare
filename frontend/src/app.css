@@ -134,32 +134,32 @@
 }
 .questionItemNumber {
   list-style: none;
-  padding-left: 110px;
+  padding-left: 30%;
 
-  padding-right: 20px;
-  font-size: 21px;
+  padding-right: 5%;
+  font-size: 1.5em;
   font-weight: 250;
   color: #e7863a;
 }
 .questionItemNumberWhite {
   list-style: none;
-  padding-left: 110px;
-  padding-right: 20px;
-  font-size: 21px;
+  padding-left: 30%;
+  padding-right: 5%;
+  font-size: 1.5em;
   font-weight: 250;
   color: white;
 }
 .questionItemAmount {
   list-style: none;
-  padding-left: 20px;
-  font-size: 21px;
+  padding-left: 6%;
+  font-size: 1.5em;
   font-weight: 250;
   color: #e7863a;
 }
 .questionItemAmountWhite {
   list-style: none;
-  padding-left: 20px;
-  font-size: 21px;
+  padding-left: 6%;
+  font-size: 1.5em;
   font-weight: 250;
   color: white;
 }
@@ -167,17 +167,17 @@
 .diamond {
   background: white;
   clip-path: polygon(0 50%, 50% 100%, 100% 50%, 50% 0);
-  width: 20px;
+  width: 5%;
   display: inline-block;
-  margin: 5px;
+  margin: 1%;
 }
 .diamondIdent {
   background: white;
   clip-path: polygon(0 50%, 50% 100%, 100% 50%, 50% 0);
-  width: 20px;
+  width: 5%;
   display: inline-block;
-  margin: 5px;
-  margin-left: 15px;
+  margin: 1%;
+  margin-left: 4.5%;
 }
 .group {
   width: 100%;
@@ -187,5 +187,5 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding-bottom: 51px;
+  padding-bottom: 13%;
 }

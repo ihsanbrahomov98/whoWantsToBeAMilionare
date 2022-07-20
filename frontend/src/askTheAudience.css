@@ -11,23 +11,22 @@
 }
 .askTheFriendContainer {
   display: flex;
-  height: 500;
-  width: 800;
+  height: 50%;
+  width: 117%;
+
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: blue;
   z-index: 23;
 }
 .askTheFriend {
   display: flex;
   color: white;
   flex-direction: column;
-
-  padding-left: 200px;
-
-  width: 250px;
-
-  height: 170px;
+  margin-top: 4%;
+  height: 100%;
+  width: 40%;
   position: absolute;
 
   z-index: 3;

@@ -653,6 +653,8 @@ const App = () => {
               </div>
             </div>
             {/* second life line */}
+          </div>
+          <div className="secondSection">
             <div className="askTheFriendContainer">
               <div
                 className={askTheFriend ? "askTheFriend" : "askTheFriendHidden"}
@@ -663,8 +665,6 @@ const App = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="secondSection">
             <div className="timer">{timer}</div>
             <div className="singleQuestionContainer">
               {oneQuestionFourAnswersSelected.question}
