@@ -643,7 +643,6 @@ const App = () => {
                   </div>
                 </div>
               </div>
-              <div>23</div>
             </div>
             {/* second life line */}
             <div className="askTheFriendContainer">
@@ -651,7 +650,8 @@ const App = () => {
                 className={askTheFriend ? "askTheFriend" : "askTheFriendHidden"}
               >
                 <div className="itemContainerForFriend">
-                  I think the answer is : {askTheFreindRender}
+                  <div className="friendImage"></div>Bob: I think the answer is
+                  : {askTheFreindRender}
                 </div>
               </div>
             </div>
@@ -672,7 +672,10 @@ const App = () => {
                   )
                 }
               >
-                {oneQuestionFourAnswersSelected.answers[0].body}
+                {" "}
+                {oneQuestionFourAnswersSelected.answers[0].body
+                  ? "A: " + oneQuestionFourAnswersSelected.answers[0].body
+                  : "" + oneQuestionFourAnswersSelected.answers[0].body}
               </div>
               <div
                 id="second"
@@ -685,7 +688,9 @@ const App = () => {
                 }
               >
                 {" "}
-                {oneQuestionFourAnswersSelected.answers[1].body}
+                {oneQuestionFourAnswersSelected.answers[1].body
+                  ? "B: " + oneQuestionFourAnswersSelected.answers[1].body
+                  : "" + oneQuestionFourAnswersSelected.answers[1].body}
               </div>
               <div
                 id="third"
@@ -698,7 +703,9 @@ const App = () => {
                 }
               >
                 {" "}
-                {oneQuestionFourAnswersSelected.answers[2].body}
+                {oneQuestionFourAnswersSelected.answers[2].body
+                  ? "C: " + oneQuestionFourAnswersSelected.answers[2].body
+                  : "" + oneQuestionFourAnswersSelected.answers[2].body}
               </div>
               <div
                 id="fourth"
@@ -711,7 +718,9 @@ const App = () => {
                 }
               >
                 {" "}
-                {oneQuestionFourAnswersSelected.answers[3].body}
+                {oneQuestionFourAnswersSelected.answers[3].body
+                  ? "D: " + oneQuestionFourAnswersSelected.answers[3].body
+                  : "" + oneQuestionFourAnswersSelected.answers[3].body}
               </div>
             </div>
           </div>

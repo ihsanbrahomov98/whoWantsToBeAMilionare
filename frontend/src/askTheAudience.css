@@ -12,16 +12,18 @@
 .askTheFriendContainer {
   display: flex;
   height: 500;
-  width: 500;
+  width: 800;
   flex-direction: column;
-
+  justify-content: start;
+  align-items: start;
   z-index: 23;
 }
 .askTheFriend {
   display: flex;
   color: white;
   flex-direction: column;
-  background-color: black;
+
+  padding-left: 200px;
 
   width: 250px;
 
@@ -38,10 +40,23 @@
 .itemContainerForFriend {
   position: relative;
   display: flex;
+  background-color: #030f38;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   width: 250px;
-  color: #e7863a;
+  color: white;
   height: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+.friendImage {
+  background-image: url("./images/PAF_2018.webp");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  position: relative;
+  width: 100px;
+  height: 50px;
+  border-radius: 50px / 25px;
 }
