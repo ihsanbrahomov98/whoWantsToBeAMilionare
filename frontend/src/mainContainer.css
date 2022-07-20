@@ -1,3 +1,32 @@
+@keyframes rightAnswer {
+  0%,
+  22%,
+  42%,
+  70%,
+  100% {
+    background: teal;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#150234, #250755);
+  }
+}
+@keyframes wrongAnswer {
+  0%,
+  22%,
+  42%,
+  70%,
+  100% {
+    background: red;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#150234, #250755);
+  }
+}
+
 .mainContainer {
   height: 100%;
   background-image: url("./images/2.jpg");
@@ -88,8 +117,10 @@
   border: 2px solid white;
   margin-top: 20px;
   margin-left: 20px;
+  background: linear-gradient(#150234, #250755);
   color: white;
-  background: teal;
+  animation: rightAnswer 3s forwards 1;
+  animation-delay: 1s;
 }
 .firstQuestionOrange {
   width: 40%;

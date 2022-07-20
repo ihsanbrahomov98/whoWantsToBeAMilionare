@@ -103,7 +103,7 @@ const App = () => {
           setBackGroundColorOfAQuestionToOrangeThree("firstQuestion");
           setBackGroundColorOfAQuestionToOrangeFour("firstQuestion");
           setStopTimer(false);
-        }, 3000);
+        }, 15000);
       } else {
         setTimer(0);
         setBackGroundColorOfAQuestionToOrangeOne("firstQuestion");
