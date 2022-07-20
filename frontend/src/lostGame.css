@@ -4,7 +4,12 @@
   background-color: black;
   text-align: center;
   color: white;
-  width: 100vw;
-  padding-bottom: 46.1vh;
-  padding-top: 46.1vh;
+  width: 99.8vw;
+  padding-bottom: 40.3vh;
+  font-size: 25px;
+  padding-top: 40.3vh;
+}
+.lostGameItem {
+  margin: 13px 0;
+  color: orange;
 }

@@ -538,12 +538,12 @@ const App = () => {
     <>
       {timer === 0 ? (
         <div className="lostGame">
-          <div>You lost game</div>
-          <div>
-            your score is:{" "}
+          <div className="lostGameItem">You lost game</div>
+          <div className="lostGameItem">
+            your have won: $
             {question === 0 ? 0 : notReveredPrices[question - 1].amount}
           </div>
-          <div onClick={() => startNewGame()}>
+          <div className="lostGameItem" onClick={() => startNewGame()}>
             Click here to start a new game{" "}
           </div>
         </div>
