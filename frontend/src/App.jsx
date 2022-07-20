@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./app.css";
 import "./mainContainer.css";
 import oneQuestionFourAnswers from "./components/oneQuestionFourAnswers";
-import prices from "./components/prices";
+import { prices, notReveredPrices } from "./components/prices";
 import "./askTheAudience.css";
 import "./callAFriend.css";
 
@@ -11,7 +11,7 @@ const App = () => {
   const [totalPoints, setTotalPoints] = useState({ amount: 100, index: 0 });
   const [oneQuestionFourAnswersSelected, setOneQuestionFourAnswersSelected] =
     useState(oneQuestionFourAnswers[0]);
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(130);
   const [heightValuesFirst, setHeightValuesFirst] = useState(140);
   const [heightValuesSecond, setHeightValuesSecond] = useState(140);
   const [heightValuesThird, setHeightValuesThird] = useState(140);
@@ -23,19 +23,19 @@ const App = () => {
   const [
     backGroundColorOfAQuestionToOrangeOne,
     setBackGroundColorOfAQuestionToOrangeOne,
-  ] = useState(false);
+  ] = useState("firstQuestion");
   const [
     backGroundColorOfAQuestionToOrangeTwo,
     setBackGroundColorOfAQuestionToOrangeTwo,
-  ] = useState(false);
+  ] = useState("firstQuestion");
   const [
     backGroundColorOfAQuestionToOrangeThree,
     setBackGroundColorOfAQuestionToOrangeThree,
-  ] = useState(false);
+  ] = useState("firstQuestion");
   const [
     backGroundColorOfAQuestionToOrangeFour,
     setBackGroundColorOfAQuestionToOrangeFour,
-  ] = useState(false);
+  ] = useState("firstQuestion");
   const [firstLiveLine, setFirstLiveLine] = useState(true);
   const [secondLiveLine, setSecondtLiveLine] = useState(true);
   const [askTheAudience, setAskTheAudience] = useState(false);
@@ -58,41 +58,58 @@ const App = () => {
     value: 0,
     index: 3,
   });
-
+  const [idOfTheAnswer, setIdOfTheAnswer] = useState(0);
   const checkingAnswer = (answer, id) => {
     if (id === "first") {
-      setBackGroundColorOfAQuestionToOrangeOne(true);
+      setBackGroundColorOfAQuestionToOrangeOne("firstQuestionOrange");
+      setIdOfTheAnswer(0);
     }
     if (id === "second") {
-      setBackGroundColorOfAQuestionToOrangeTwo(true);
+      setBackGroundColorOfAQuestionToOrangeTwo("firstQuestionOrange");
+      setIdOfTheAnswer(1);
     }
     if (id === "third") {
-      setBackGroundColorOfAQuestionToOrangeThree(true);
+      setBackGroundColorOfAQuestionToOrangeThree("firstQuestionOrange");
+      setIdOfTheAnswer(2);
     }
     if (id === "fourth") {
-      setBackGroundColorOfAQuestionToOrangeFour(true);
+      setBackGroundColorOfAQuestionToOrangeFour("firstQuestionOrange");
+      setIdOfTheAnswer(3);
     }
 
     setStopTimer(true);
 
     setTimeout(() => {
       if (answer === true) {
-        alert("true");
-        setQuestion(question + 1);
-        setTimer(10);
-        setNewQuestion(true);
-        setBackGroundColorOfAQuestionToOrangeOne(false);
-        setBackGroundColorOfAQuestionToOrangeTwo(false);
-        setBackGroundColorOfAQuestionToOrangeThree(false);
-        setBackGroundColorOfAQuestionToOrangeFour(false);
-        setStopTimer(false);
+        if (id === "first") {
+          setBackGroundColorOfAQuestionToOrangeOne("firstQuestionTeal");
+        }
+        if (id === "second") {
+          setBackGroundColorOfAQuestionToOrangeTwo("firstQuestionTeal");
+        }
+
+        if (id === "third") {
+          setBackGroundColorOfAQuestionToOrangeThree("firstQuestionTeal");
+        }
+        if (id === "fourth") {
+          setBackGroundColorOfAQuestionToOrangeFour("firstQuestionTeal");
+        }
+        setTimeout(() => {
+          setQuestion(question + 1);
+          setTimer(10);
+          setNewQuestion(true);
+          setBackGroundColorOfAQuestionToOrangeOne("firstQuestion");
+          setBackGroundColorOfAQuestionToOrangeTwo("firstQuestion");
+          setBackGroundColorOfAQuestionToOrangeThree("firstQuestion");
+          setBackGroundColorOfAQuestionToOrangeFour("firstQuestion");
+          setStopTimer(false);
+        }, 3000);
       } else {
-        alert("false");
         setTimer(0);
-        setBackGroundColorOfAQuestionToOrangeOne(false);
-        setBackGroundColorOfAQuestionToOrangeTwo(false);
-        setBackGroundColorOfAQuestionToOrangeThree(false);
-        setBackGroundColorOfAQuestionToOrangeFour(false);
+        setBackGroundColorOfAQuestionToOrangeOne("firstQuestion");
+        setBackGroundColorOfAQuestionToOrangeTwo("firstQuestion");
+        setBackGroundColorOfAQuestionToOrangeThree("firstQuestion");
+        setBackGroundColorOfAQuestionToOrangeFour("firstQuestion");
         setStopTimer(false);
       }
     }, 5000);
@@ -109,7 +126,7 @@ const App = () => {
   }, [timer]);
 
   useEffect(() => {
-    setTimer(10);
+    setTimer(130);
   }, [question]);
 
   useEffect(() => {
@@ -484,11 +501,11 @@ const App = () => {
       {timer === 0 ? (
         <div className="lostGame">
           <div>lost game</div>
-          <div>your score is: {prices[question].amount}</div>
+          <div>your score is: {notReveredPrices[question].amount}</div>
           <div onClick={() => startNewGame()}>play new game </div>
         </div>
       ) : (
-        <div>still paling</div>
+        <div></div>
       )}
       {/* // Main */}
       <div className="main">
@@ -612,11 +629,7 @@ const App = () => {
             <div className="answerContainer">
               <div
                 id="first"
-                className={
-                  backGroundColorOfAQuestionToOrangeOne
-                    ? "firstQuestionOrange"
-                    : "firstQuestion"
-                }
+                className={backGroundColorOfAQuestionToOrangeOne}
                 onClick={(e) =>
                   checkingAnswer(
                     oneQuestionFourAnswersSelected.answers[0].correct,
@@ -628,11 +641,7 @@ const App = () => {
               </div>
               <div
                 id="second"
-                className={
-                  backGroundColorOfAQuestionToOrangeTwo
-                    ? "firstQuestionOrange"
-                    : "firstQuestion"
-                }
+                className={backGroundColorOfAQuestionToOrangeTwo}
                 onClick={(e) =>
                   checkingAnswer(
                     oneQuestionFourAnswersSelected.answers[1].correct,
@@ -645,11 +654,7 @@ const App = () => {
               </div>
               <div
                 id="third"
-                className={
-                  backGroundColorOfAQuestionToOrangeThree
-                    ? "firstQuestionOrange"
-                    : "firstQuestion"
-                }
+                className={backGroundColorOfAQuestionToOrangeThree}
                 onClick={(e) =>
                   checkingAnswer(
                     oneQuestionFourAnswersSelected.answers[2].correct,
@@ -662,11 +667,7 @@ const App = () => {
               </div>
               <div
                 id="fourth"
-                className={
-                  backGroundColorOfAQuestionToOrangeFour
-                    ? "firstQuestionOrange"
-                    : "firstQuestion"
-                }
+                className={backGroundColorOfAQuestionToOrangeFour}
                 onClick={(e) =>
                   checkingAnswer(
                     oneQuestionFourAnswersSelected.answers[3].correct,
@@ -718,7 +719,7 @@ const App = () => {
                 >
                   <span
                     className={
-                      item.saveSum === true
+                      item.saveSum === true || question === item.id - 1
                         ? "questionItemNumberWhite"
                         : "questionItemNumber"
                     }
@@ -734,7 +735,7 @@ const App = () => {
                   </span>
                   <span
                     className={
-                      item.saveSum === true
+                      item.saveSum === true || question === item.id - 1
                         ? "questionItemAmountWhite"
                         : "questionItemAmount"
                     }

@@ -110,13 +110,16 @@
   width: 100%;
 }
 .questionsContainerSelected {
-  background-color: teal;
+  background-color: #fa9b1b;
   border-radius: 25px;
+  color: white;
+
   width: 100%;
 }
 .questionItemNumber {
   list-style: none;
   padding-left: 110px;
+
   padding-right: 20px;
   font-size: 21px;
   font-weight: 250;

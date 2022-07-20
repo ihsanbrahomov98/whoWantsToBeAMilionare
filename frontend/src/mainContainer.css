@@ -1,6 +1,6 @@
 .mainContainer {
   height: 100%;
-  background-color: teal;
+  background-image: url("./images/2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -76,6 +76,20 @@
   margin-left: 20px;
   color: white;
   background: linear-gradient(#150234, #250755);
+}
+.firstQuestionTeal {
+  width: 40%;
+  height: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid white;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: white;
+  background: teal;
 }
 .firstQuestionOrange {
   width: 40%;
