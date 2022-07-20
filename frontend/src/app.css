@@ -24,7 +24,7 @@
   direction: row;
   display: flex;
 
-  padding-top: 35px;
+  padding-top: 10%;
 }
 .firstlifeline {
   order: 1;
@@ -35,8 +35,8 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 100px;
-  height: 50px;
+  width: 27%;
+  height: 80%;
 
   border-radius: 50px / 25px;
 }
@@ -50,8 +50,8 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 100px;
-  height: 50px;
+  width: 27%;
+  height: 80%;
 
   border-radius: 50px / 25px;
 }
@@ -64,8 +64,8 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 100px;
-  height: 50px;
+  width: 27%;
+  height: 80%;
   border-radius: 50px / 25px;
 }
 .secondlifelineIncorrect {
@@ -78,9 +78,9 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 100px;
+  width: 27%;
   pointer-events: none;
-  height: 50px;
+  height: 80%;
   border-radius: 50px / 25px;
 }
 
@@ -94,8 +94,8 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 100px;
-  height: 50px;
+  width: 27%;
+  height: 80%;
   border-radius: 50px / 25px;
 }
 .thirdlifelineIncorrect {
@@ -108,8 +108,8 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 100px;
-  height: 50px;
+  width: 27%;
+  height: 80%;
   border-radius: 50px / 25px;
 }
 .moneyQuestionsNumberAndPrizeContainer {
