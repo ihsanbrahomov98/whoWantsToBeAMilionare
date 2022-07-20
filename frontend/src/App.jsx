@@ -5,6 +5,7 @@ import oneQuestionFourAnswers from "./components/oneQuestionFourAnswers";
 import { prices, notReveredPrices } from "./components/prices";
 import "./askTheAudience.css";
 import "./callAFriend.css";
+import "./lostGame.css";
 
 const App = () => {
   const [question, setQuestion] = useState(0);
@@ -146,7 +147,7 @@ const App = () => {
   }, [timer, setTimer]);
 
   useEffect(() => {
-    setTimer(130);
+    setTimer(60);
   }, [question]);
 
   useEffect(() => {
@@ -156,8 +157,13 @@ const App = () => {
   }, [question]);
 
   const startNewGame = () => {
-    setTimer(10);
+    setTimer(60);
     setQuestion(0);
+    setFirstLiveLine(true);
+    setSecondtLiveLine(true);
+    setOneQuestionFourAnswersSelected(oneQuestionFourAnswers[0]);
+
+    setThirdLiveLIne(true);
   };
   const firstLifeLineUsed = () => {
     setFirstLiveLine(false);
@@ -532,12 +538,14 @@ const App = () => {
     <>
       {timer === 0 ? (
         <div className="lostGame">
-          <div>lost game</div>
+          <div>You lost game</div>
           <div>
             your score is:{" "}
             {question === 0 ? 0 : notReveredPrices[question - 1].amount}
           </div>
-          <div onClick={() => startNewGame()}>play new game </div>
+          <div onClick={() => startNewGame()}>
+            Click here to start a new game{" "}
+          </div>
         </div>
       ) : (
         <div></div>
@@ -740,11 +748,23 @@ const App = () => {
             ></div>
             <div
               onClick={() => secondLifeLine()}
+              style={{
+                pointerEvents:
+                  askTheAudience || askTheFriend || !secondLiveLine
+                    ? "none"
+                    : "all",
+              }}
               className={
                 secondLiveLine ? "secondlifeline" : "secondlifelineIncorrect"
               }
             ></div>
             <div
+              style={{
+                pointerEvents:
+                  askTheAudience || askTheFriend || !thirdLiveLine
+                    ? "none"
+                    : "all",
+              }}
               onClick={() => thirdLifeLine()}
               className={
                 thirdLiveLine ? "thirdlifeline" : "thirdlifelineIncorrect"

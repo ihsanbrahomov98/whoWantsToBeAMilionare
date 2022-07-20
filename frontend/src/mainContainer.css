@@ -9,7 +9,7 @@
   20%,
   40%,
   60% {
-    background: linear-gradient(#150234, #250755);
+    background-color: #030f38;
   }
 }
 @keyframes wrongAnswer {
@@ -23,7 +23,7 @@
   20%,
   40%,
   60% {
-    background: linear-gradient(#150234, #250755);
+    background-color: #030f38;
   }
 }
 
@@ -78,13 +78,13 @@
   padding-top: 30px;
   width: 990px;
   font-size: 25px;
+  border: 2px solid white;
   margin: auto;
-  background: linear-gradient(#150234, #250755);
+  background-color: #030f38;
   padding-bottom: 30px;
   color: white;
   text-align: center;
   display: block;
-  background-color: red;
 }
 .answerContainer {
   display: flex;
@@ -108,7 +108,7 @@
   margin-top: 20px;
   margin-left: 20px;
   color: white;
-  background: linear-gradient(#150234, #250755);
+  background-color: #030f38;
 }
 .firstQuestionRightAnswer {
   width: 40%;
@@ -116,12 +116,15 @@
   padding-top: 20px;
   padding-bottom: 10px;
   margin-right: 20px;
-  text-align: center;
+  padding-left: 12px;
+  font-size: 20px;
+  text-align: start;
+  background-color: #030f38;
   border-radius: 25px;
   border: 2px solid white;
   margin-top: 20px;
   margin-left: 20px;
-  background: linear-gradient(#150234, #250755);
+
   color: white;
   animation: rightAnswer 3s forwards 1;
   animation-delay: 1s;
@@ -132,22 +135,28 @@
   padding-top: 20px;
   padding-bottom: 10px;
   margin-right: 20px;
-  text-align: center;
+  background-color: #030f38;
+  padding-left: 12px;
+  font-size: 20px;
+  text-align: start;
   border-radius: 25px;
   border: 2px solid white;
   margin-top: 20px;
   margin-left: 20px;
-  background: linear-gradient(#150234, #250755);
   color: white;
   animation: wrongAnswer 3s forwards 1;
   animation-delay: 1s;
 }
 .firstQuestionOrange {
   width: 40%;
-  padding-top: 17px;
-  padding-bottom: 17px;
+  height: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   margin-right: 20px;
-  text-align: center;
+  background-color: #030f38;
+  padding-left: 12px;
+  font-size: 20px;
+  text-align: start;
   border-radius: 25px;
   border: 2px solid white;
   margin-top: 20px;
