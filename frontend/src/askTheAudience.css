@@ -165,7 +165,7 @@
   object-fit: cover;
   position: relative;
   text-align: center;
-  width: 6.25em;
-  height: 3.125em;
+  width: 6em;
+  height: 3em;
   border-radius: 50px / 25px;
 }

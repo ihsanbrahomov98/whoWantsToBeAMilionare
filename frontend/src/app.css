@@ -1,3 +1,63 @@
+@media only screen and (max-width: 4160px) {
+  .lifelinesContainer {
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .lifelinesContainer {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+@media only screen and (max-width: 800px) {
+  * {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  * {
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: 9px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  * {
+    font-size: 7px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  * {
+    font-size: 6px;
+  }
+
+  @media only screen and (max-width: 300px) {
+    * {
+      font-size: 4px;
+    }
+  }
+  @media only screen and (max-width: 220px) {
+    * {
+      font-size: 2px;
+    }
+  }
+}
+@media only screen and (max-width: 120px) {
+  * {
+    font-size: 2px;
+  }
+}
+@media only screen and (max-width: 100px) {
+  * {
+    font-size: 1px;
+  }
+}
+
 .main {
   display: flex;
   height: 100vh;
@@ -18,9 +78,8 @@
   width: 100%;
   background-color: #030f38;
 
-  height: 9%;
-  justify-content: center;
-  align-items: flex-start;
+  height: 35%;
+
   direction: row;
   display: flex;
 
@@ -35,8 +94,8 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 27%;
-  height: 80%;
+  width: 6em;
+  height: 3em;
 
   border-radius: 50px / 25px;
 }
@@ -50,8 +109,8 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 27%;
-  height: 80%;
+  width: 6em;
+  height: 3em;
 
   border-radius: 50px / 25px;
 }
@@ -64,8 +123,9 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 27%;
-  height: 80%;
+  width: 6em;
+  height: 3em;
+
   border-radius: 50px / 25px;
 }
 .secondlifelineIncorrect {
@@ -78,9 +138,10 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 27%;
+
   pointer-events: none;
-  height: 80%;
+  width: 6em;
+  height: 3em;
   border-radius: 50px / 25px;
 }
 
@@ -94,8 +155,9 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 27%;
-  height: 80%;
+  width: 6em;
+  height: 3em;
+
   border-radius: 50px / 25px;
 }
 .thirdlifelineIncorrect {
@@ -108,13 +170,13 @@
   background-size: cover;
   object-fit: cover;
   position: relative;
-  width: 27%;
-  height: 80%;
+  width: 6em;
+  height: 3em;
   border-radius: 50px / 25px;
 }
 .moneyQuestionsNumberAndPrizeContainer {
   /* background: linear-gradient(#150234, #250755); */
-  height: 85%;
+  height: 55%;
   background-color: #030f38;
   display: flex;
   width: 100%;
@@ -137,7 +199,7 @@
   padding-left: 30%;
 
   padding-right: 5%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 250;
   color: #e7863a;
 }
@@ -145,21 +207,21 @@
   list-style: none;
   padding-left: 30%;
   padding-right: 5%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 250;
   color: white;
 }
 .questionItemAmount {
   list-style: none;
   padding-left: 6%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 250;
   color: #e7863a;
 }
 .questionItemAmountWhite {
   list-style: none;
   padding-left: 6%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 250;
   color: white;
 }
@@ -177,7 +239,7 @@
   width: 5%;
   display: inline-block;
   margin: 1%;
-  margin-left: 4.5%;
+  margin-left: 3.7%;
 }
 .group {
   width: 100%;

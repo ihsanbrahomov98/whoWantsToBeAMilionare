@@ -38,7 +38,7 @@ export const prices = [
   },
   {
     id: 10,
-    amount: "$ 10000",
+    amount: "$ 7500",
     saveSum: true,
     indent: true,
   },
@@ -108,7 +108,7 @@ export const notReveredPrices = [
   },
   {
     id: 10,
-    amount: "$ 10000",
+    amount: "$ 7500",
     saveSum: true,
     indent: true,
   },

@@ -12,6 +12,7 @@ const App = () => {
   const [totalPoints, setTotalPoints] = useState({ amount: 100, index: 0 });
   const [oneQuestionFourAnswersSelected, setOneQuestionFourAnswersSelected] =
     useState(oneQuestionFourAnswers[0]);
+
   const [timer, setTimer] = useState(130);
   const [heightValuesFirst, setHeightValuesFirst] = useState(140);
   const [heightValuesSecond, setHeightValuesSecond] = useState(140);
@@ -19,8 +20,7 @@ const App = () => {
   const [heightValuesFourth, setHeightValuesFourth] = useState(140);
   const [loadingResultFromAskTheAudince, setLoadingResultFromAskTheAudince] =
     useState(true);
-
-  const [newQuestion, setNewQuestion] = useState(false);
+  const [newQuestion, setNewQuestion] = useState(oneQuestionFourAnswers[0]);
   const [
     backGroundColorOfAQuestionToOrangeOne,
     setBackGroundColorOfAQuestionToOrangeOne,
@@ -101,7 +101,6 @@ const App = () => {
         setTimeout(() => {
           setQuestion(question + 1);
           setTimer(10);
-          setNewQuestion(true);
           setBackGroundColorOfAQuestionToOrangeOne("firstQuestion");
           setBackGroundColorOfAQuestionToOrangeTwo("firstQuestion");
           setBackGroundColorOfAQuestionToOrangeThree("firstQuestion");
@@ -161,8 +160,7 @@ const App = () => {
     setQuestion(0);
     setFirstLiveLine(true);
     setSecondtLiveLine(true);
-    setOneQuestionFourAnswersSelected(oneQuestionFourAnswers[0]);
-
+    setOneQuestionFourAnswersSelected(newQuestion);
     setThirdLiveLIne(true);
   };
   const firstLifeLineUsed = () => {
@@ -171,6 +169,7 @@ const App = () => {
       JSON.stringify(oneQuestionFourAnswers[question])
     );
 
+    setNewQuestion(copiedObject);
     const shufle = (oneQuestionFourAnswers) => {
       for (
         let i = oneQuestionFourAnswers[question].answers.length - 1;
@@ -507,7 +506,6 @@ const App = () => {
       if (oneQuestionFourAnswersSelected.answers[i].body) {
         if (oneQuestionFourAnswersSelected.answers[i].correct === true) {
           array.push(oneQuestionFourAnswersSelected.answers[i]);
-          // setAskTheFriendRender(oneQuestionFourAnswersSelected.answers[i].body);
         } else {
           wrongArray.push(oneQuestionFourAnswersSelected.answers[i]);
         }
@@ -536,7 +534,7 @@ const App = () => {
         <div className="lostGame">
           <div className="lostGameItem">You lost game</div>
           <div className="lostGameItem">
-            your have won: $
+            your have won:
             {question === 0 ? 0 : notReveredPrices[question - 1].amount}
           </div>
           <div className="lostGameItem" onClick={() => startNewGame()}>
