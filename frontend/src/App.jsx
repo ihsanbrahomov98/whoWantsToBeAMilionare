@@ -259,14 +259,10 @@ const App = () => {
         closeTheLifeLines();
       }, 5000);
     }, 6700);
-
-    let points = 100;
     setAskTheAudience(true);
 
     let rightAnswer = [];
     let wrongAnswer = [];
-    console.log(rightAnswer);
-    console.log(wrongAnswer);
     for (let i = 0; i <= 3; i++) {
       if (oneQuestionFourAnswers[question].answers[i].correct === true) {
         let correctAnswer = oneQuestionFourAnswers[question].answers[i];
@@ -556,7 +552,8 @@ const App = () => {
 
         <div className="mainContainer">
           {/* First section */}
-          <div className="firstSection">
+          <div className="firstSection">{/* second life line */}</div>
+          <div className="secondSection">
             <div className="askTheAudienceContainer">
               {" "}
               <div
@@ -608,6 +605,7 @@ const App = () => {
                     </div>
                   </div>
                   <div className="secondContainerRow">
+                    <div className="itemFive"></div>
                     <div
                       style={{
                         height: loadingResultFromAskTheAudince
@@ -642,6 +640,7 @@ const App = () => {
                       }}
                       className="itemFour"
                     ></div>
+                    <div className="itemFive"></div>
                   </div>
                   <div className="thirdContainerRow">
                     <div className="answerItem">A</div>
@@ -652,9 +651,6 @@ const App = () => {
                 </div>
               </div>
             </div>
-            {/* second life line */}
-          </div>
-          <div className="secondSection">
             <div className="askTheFriendContainer">
               <div
                 className={askTheFriend ? "askTheFriend" : "askTheFriendHidden"}
@@ -733,7 +729,7 @@ const App = () => {
             </div>
           </div>
           {/* Third section */}
-          <div className="thirdSection">3</div>
+          <div className="thirdSection"></div>
         </div>
         {/* Second Container */}
         <div className="secondContainer">

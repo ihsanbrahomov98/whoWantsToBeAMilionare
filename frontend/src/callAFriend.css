@@ -9,22 +9,112 @@
     transform-origin: 0% 100%;
   }
 }
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+@media only screen and (max-width: 4160px) {
+  .askTheAudienceContainer {
+    padding-bottom: 10%;
+  }
+}
+@media only screen and (max-width: 1160px) {
+  .askTheAudienceContainer {
+    padding-bottom: 15%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  * {
+    font-size: 13px;
+  }
+  .askTheAudienceContainer {
+    padding-bottom: 20%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  * {
+    font-size: 12px;
+  }
+  .askTheAudienceContainer {
+    padding-bottom: 23%;
+  }
+}
+@media only screen and (max-width: 720px) {
+  * {
+    font-size: 11px;
+  }
+  .askTheAudienceContainer {
+    padding-bottom: 28%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: 9px;
+  }
+  .askTheAudienceContainer {
+    padding-bottom: 41%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  * {
+    font-size: 7px;
+  }
+  .askTheAudienceContainer {
+    padding-bottom: 45%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  * {
+    font-size: 6px;
+  }
+  .askTheAudienceContainer {
+    padding-bottom: 55%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  * {
+    font-size: 4px;
+  }
+  .askTheAudienceContainer {
+    padding-bottom: 65%;
+  }
+}
+@media only screen and (max-width: 200px) {
+  * {
+    font-size: 2px;
+  }
+}
+@media only screen and (max-width: 100px) {
+  * {
+    font-size: 1px;
+  }
+}
 .askTheAudienceContainer {
   display: flex;
-  height: 500;
-  width: 500;
+  height: 30%;
+  width: 30%;
+
   flex-direction: column;
   z-index: 23;
+  top: 520;
+  left: 1020;
+  position: relative;
+  padding-left: 50%;
 }
 .askTheAudience {
   display: flex;
   color: white;
   flex-direction: column;
-
-  padding-left: 200px;
-  width: 250px;
-
-  height: 170px;
+  top: 520;
+  left: 1020;
+  padding-left: 15%;
+  width: 40%;
+  margin-bottom: 25%;
+  height: 30%;
   position: absolute;
 
   z-index: 3;
@@ -40,45 +130,60 @@
   display: flex;
   align-items: end;
   flex-direction: column;
-  width: 250px;
+  width: 50%;
+
   justify-content: space-around;
 }
 .itemOne {
   animation: myAnim 1s ease 200ms 7 alternate forwards;
-  height: 140px;
-  width: 37px;
+  height: 2em;
+  width: 1.8em;
   display: flex;
   align-items: end;
+
   justify-content: center;
   background-color: orange;
 }
 
 .itemTwo {
   animation: myAnim 1s ease 400ms 7 alternate forwards;
-  height: 140px;
-  width: 37px;
+  height: 2em;
+  width: 1.8em;
   display: flex;
   align-items: end;
   justify-content: center;
+
   background-color: orange;
 }
 
 .itemThree {
   animation: myAnim 1s ease 800ms 7 alternate forwards;
 
-  height: 140px;
-  width: 37px;
+  height: 4em;
+  width: 1.8em;
   display: flex;
+
   align-items: end;
   justify-content: center;
   background-color: orange;
 }
+.itemFive {
+  animation: myAnim 1s ease 800ms 7 alternate forwards;
 
+  height: 8em;
+  width: 0.0001em;
+  display: flex;
+
+  align-items: end;
+  justify-content: center;
+  background-color: black;
+}
 .itemFour {
   animation: myAnim 1s ease 1000ms 7 alternate forwards;
-  height: 140px;
-  width: 37px;
+  height: 2em;
+  width: 1.8em;
   display: flex;
+
   align-items: end;
   justify-content: center;
   background-color: orange;
@@ -91,7 +196,7 @@
   justify-content: space-evenly;
   width: 100%;
 
-  height: 20px;
+  height: 5%;
 }
 .secondContainerRow {
   position: relative;
@@ -102,7 +207,7 @@
   align-items: end;
   width: 100%;
 
-  height: 145px;
+  height: 100%;
 }
 .thirdContainerRow {
   position: relative;
@@ -111,11 +216,12 @@
   justify-content: space-evenly;
   width: 100%;
   background-color: #030f38;
-  height: 20px;
+  height: 10%;
 }
 .answerItem {
-  width: 37px;
+  width: 10%;
   display: flex;
   align-items: start;
   justify-content: center;
+  font-size: 1em;
 }
