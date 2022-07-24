@@ -643,10 +643,14 @@ const App = () => {
                     <div className="itemFive"></div>
                   </div>
                   <div className="thirdContainerRow">
-                    <div className="answerItem">A</div>
+                    <div style={{ paddingLeft: "2%" }} className="answerItem">
+                      A
+                    </div>
                     <div className="answerItem">B</div>
                     <div className="answerItem">C</div>
-                    <div className="answerItem">D</div>
+                    <div style={{ paddingRight: "2%" }} className="answerItem">
+                      D
+                    </div>
                   </div>
                 </div>
               </div>
