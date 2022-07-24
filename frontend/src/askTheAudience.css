@@ -11,16 +11,16 @@
 }
 
 @media only screen and (max-width: 4160px) {
-  .askTheAudienceContainer {
-    padding-bottom: 10%;
+  .askTheFriendContainer {
+    height: 30%;
   }
   .itemFive {
     height: 8em;
   }
 }
 @media only screen and (max-width: 1160px) {
-  .askTheAudienceContainer {
-    padding-bottom: 15%;
+  .askTheFriendContainer {
+    height: 40%;
   }
 }
 
@@ -28,8 +28,8 @@
   * {
     font-size: 13px;
   }
-  .askTheAudienceContainer {
-    padding-bottom: 20%;
+  .askTheFriendContainer {
+    height: 40%;
   }
 }
 
@@ -37,16 +37,16 @@
   * {
     font-size: 12px;
   }
-  .askTheAudienceContainer {
-    padding-bottom: 23%;
+  .askTheFriendContainer {
+    height: 40%;
   }
 }
 @media only screen and (max-width: 720px) {
   * {
     font-size: 11px;
   }
-  .askTheAudienceContainer {
-    padding-bottom: 28%;
+  .askTheFriendContainer {
+    height: 40%;
   }
   .itemFive {
     height: 6em;
@@ -56,8 +56,8 @@
   * {
     font-size: 9px;
   }
-  .askTheAudienceContainer {
-    padding-bottom: 41%;
+  .askTheFriendContainer {
+    height: 48%;
   }
   .itemFive {
     height: 5em;
@@ -68,8 +68,8 @@
   * {
     font-size: 7px;
   }
-  .askTheAudienceContainer {
-    padding-bottom: 45%;
+  .askTheFriendContainer {
+    height: 40%;
   }
   .itemFive {
     height: 4em;
@@ -88,16 +88,24 @@
   * {
     font-size: 4px;
   }
-  .askTheAudienceContainer {
-    padding-bottom: 90%;
+  .askTheFriendContainer {
+    height: 45%;
   }
 }
-@media only screen and (max-width: 200px) {
+@media only screen and (max-width: 220px) {
   * {
     font-size: 2px;
   }
-  .askTheAudienceContainer {
-    padding-bottom: 100%;
+  .askTheFriendContainer {
+    height: 40%;
+  }
+}
+@media only screen and (max-width: 120px) {
+  * {
+    font-size: 2px;
+  }
+  .askTheFriendContainer {
+    height: 30%;
   }
 }
 @media only screen and (max-width: 100px) {
@@ -111,7 +119,7 @@
 
 .askTheFriendContainer {
   display: flex;
-  height: 30%;
+
   width: 80%;
   position: absolute;
   flex-direction: column;
