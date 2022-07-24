@@ -345,7 +345,7 @@ const oneQuestionFourAnswers = [
         correct: false,
       },
       {
-        body: "Pedro Castillo",
+        body: "Pedro Castillos",
         correct: true,
       },
     ],
