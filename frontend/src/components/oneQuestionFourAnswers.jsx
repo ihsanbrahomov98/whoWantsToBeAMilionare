@@ -2,7 +2,8 @@ const oneQuestionFourAnswers = [
   {
     id: 1,
     degreeOfComplexity: 45,
-    question: "When was Bulgaria created?",
+    question: "When wasadsad asdasasdasdassdaaaaaaaaaas Bulgaria founded?",
+
     answers: [
       {
         body: "523 AD",
@@ -24,8 +25,8 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 2,
-    degreeOfComplexity: 7,
-    question: "Who Has Walked on the Moon, first?",
+    degreeOfComplexity: 27,
+    question: "Who first walked on the Moon?",
     answers: [
       {
         body: "Neil Armstrong",
@@ -47,7 +48,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 4,
-    degreeOfComplexity: 4,
+    degreeOfComplexity: 14,
     question:
       "A person with well-developed abdominal muscles is said to have a what?",
     answers: [
@@ -71,7 +72,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 3,
-    degreeOfComplexity: 3,
+    degreeOfComplexity: 23,
     question: "Which one is german car brand?",
     answers: [
       {
@@ -94,7 +95,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 5,
-    degreeOfComplexity: 5,
+    degreeOfComplexity: 65,
     question: "What is the Celsius equivalent of 77 degrees Fahrenheit?",
     answers: [
       {
@@ -117,7 +118,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 6,
-    degreeOfComplexity: 6,
+    degreeOfComplexity: 16,
     question: "Which is the largest city in Bulgaria",
     answers: [
       {
@@ -140,7 +141,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 7,
-    degreeOfComplexity: 7,
+    degreeOfComplexity: 27,
     question: "Which of these names is not in the title of a Shakespeare play?",
     answers: [
       {
@@ -163,7 +164,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 8,
-    degreeOfComplexity: 8,
+    degreeOfComplexity: 18,
     question:
       "Due to the geographical areas they represented, the opposing sides of the US Civil War were known by what names?",
     answers: [
@@ -187,7 +188,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 9,
-    degreeOfComplexity: 9,
+    degreeOfComplexity: 39,
     question:
       "According to the old saying, love of what is the root of all evil?",
     answers: [
@@ -197,7 +198,7 @@ const oneQuestionFourAnswers = [
       },
       {
         body: "Sofia",
-        correct: true,
+        correct: false,
       },
       {
         body: "Money",
@@ -221,7 +222,7 @@ const oneQuestionFourAnswers = [
       },
       {
         body: "Paper Tiger",
-        correct: true,
+        correct: false,
       },
       {
         body: "Brother",
@@ -235,7 +236,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 11,
-    degreeOfComplexity: 11,
+    degreeOfComplexity: 111,
     question:
       "If you're skeptical about something, you should take it with a grain of what?",
     answers: [
@@ -259,7 +260,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 12,
-    degreeOfComplexity: 12,
+    degreeOfComplexity: 112,
     question:
       "Something in an obvious location is said to be right under your what?",
     answers: [
@@ -306,7 +307,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 14,
-    degreeOfComplexity: 13,
+    degreeOfComplexity: 14,
     question: "Who is the author of the Song of Ice and Fire",
     answers: [
       {

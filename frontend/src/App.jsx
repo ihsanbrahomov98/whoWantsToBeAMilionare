@@ -532,10 +532,10 @@ const App = () => {
     <>
       {timer === 0 ? (
         <div className="lostGame">
-          <div className="lostGameItem">You lost game</div>
+          <div className="lostGameItem">You lost the game</div>
           <div className="lostGameItem">
-            your have won:
-            {question === 0 ? 0 : notReveredPrices[question - 1].amount}
+            Congratulations you have won: <span> &nbsp;</span>
+            {question === 0 ? "$ 0" : notReveredPrices[question - 1].amount}
           </div>
           <div className="lostGameItem" onClick={() => startNewGame()}>
             Click here to start a new game{" "}
@@ -665,7 +665,9 @@ const App = () => {
             </div>
             <div className="timer">{timer}</div>
             <div className="singleQuestionContainer">
-              {oneQuestionFourAnswersSelected.question}
+              <div className="singleQuestion">
+                {oneQuestionFourAnswersSelected.question}
+              </div>
             </div>
             <div className="answerContainer">
               <div
