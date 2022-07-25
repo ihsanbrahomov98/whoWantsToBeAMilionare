@@ -634,7 +634,7 @@ const App = () => {
                 className={askTheFriend ? "askTheFriend" : "askTheFriendHidden"}
               >
                 <div className="itemContainerForFriend">
-                  <div className="friendImage"></div>Bob: I think the answer is
+                  <div className="friendImage"></div>John: I think the answer is
                   : {askTheFreindRender}
                 </div>
               </div>
