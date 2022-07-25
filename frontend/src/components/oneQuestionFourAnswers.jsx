@@ -54,11 +54,11 @@ const oneQuestionFourAnswers = [
     answers: [
       {
         body: "One-pack",
-        correct: true,
+        correct: false,
       },
       {
         body: "Six-pack",
-        correct: false,
+        correct: true,
       },
       {
         body: "Two-pack",
