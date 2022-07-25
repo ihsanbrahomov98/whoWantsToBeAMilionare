@@ -136,7 +136,6 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log("tik tak");
     if (timer >= 1 && !stopTimer) {
       const interval = setInterval(() => {
         setTimer((prev) => prev - 1);
@@ -151,8 +150,6 @@ const App = () => {
 
   useEffect(() => {
     setOneQuestionFourAnswersSelected(oneQuestionFourAnswers[question]);
-    if (oneQuestionFourAnswersSelected)
-      console.log(oneQuestionFourAnswersSelected);
   }, [question]);
 
   const startNewGame = () => {
@@ -204,7 +201,7 @@ const App = () => {
     for (let i = 0; i <= 1; i++) {
       wrongAnswers.push(oneQuestionFourAnswers[question].answers.body === "");
     }
-    console.log(wrongAnswers);
+
     const fixed = [(oneQuestionFourAnswers[question].answers = wrongAnswers)];
 
     const newShufle = shufle(oneQuestionFourAnswers);
@@ -220,15 +217,11 @@ const App = () => {
     let newArray = [];
     for (let i = 0; i <= 3; i++) {
       if (copiedObject.answers[i].body === rightAnswerMap[0].body) {
-        console.log("right");
-        console.log(copiedObject.answers[i].body);
         newArray.push({
           body: copiedObject.answers[i].body,
           correct: true,
         });
       } else if (copiedObject.answers[i].body === wrongAnswerMap[0].body) {
-        console.log("wrong");
-        console.log(copiedObject.answers[i].bod);
         newArray.push({
           body: copiedObject.answers[i].body,
           correct: false,
@@ -238,10 +231,9 @@ const App = () => {
           body: "",
           correct: false,
         });
-        console.log(copiedObject.answers[i].body);
       }
     }
-    console.log(newArray);
+
     const finalModifer = [
       (oneQuestionFourAnswers[question].answers = newArray),
     ];
@@ -280,21 +272,17 @@ const App = () => {
 
     const probabilityOfWrongAnswer = (answer) => {
       if (answer.wrong.correct === false) {
-        console.log("wrong answers ar:");
-        console.log(oneQuestionFourAnswers[question].answers[0].body);
         const i = answer.index;
         const difficultyOfTheQuestion =
           oneQuestionFourAnswers[question].degreeOfComplexity * 0.01;
-        let randomNum = Math.floor(Math.random() * 10);
+
         let secondRandomNum = Math.floor(Math.random() * 10);
-        console.log(" secondRandomNum");
-        console.log(secondRandomNum);
+
         const change =
           difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
         setTotalPoints({ amount: totalPoints.amount - change, index: i });
 
         if (secondRandomNum <= 4) {
-          console.log("parvo");
           const firstChange = Math.round((change / 3) * 1.5);
           const sChange = Math.round((change / 3) * 1);
           const cChange = Math.round((change / 3) * 0.5);
@@ -317,7 +305,6 @@ const App = () => {
           });
         }
         if (secondRandomNum === 5) {
-          console.log("vtoro");
           const firstChange = Math.round((change / 3) * 1);
           const sChange = Math.round((change / 3) * 1.5);
           const cChange = Math.round((change / 3) * 0.5);
@@ -340,7 +327,6 @@ const App = () => {
           });
         }
         if (secondRandomNum >= 6) {
-          console.log("treto");
           const firstChange = Math.round((change / 3) * 0.5);
           const sChange = Math.round((change / 3) * 1);
           const cChange = Math.round((change / 3) * 1.5);
@@ -370,13 +356,11 @@ const App = () => {
         const difficultyOfTheQuestion =
           oneQuestionFourAnswers[question].degreeOfComplexity * 0.1;
         let randomNum = Math.random();
-        console.log(difficultyOfTheQuestion);
+
         const change =
           difficultyOfTheQuestion * 100 + Math.floor(Math.random() * 10);
 
         const ponits = totalPoints.amount - change;
-
-        console.log(askTheAudienceProbabilityB);
       }
     };
     probabilityOfRightAnswer(rightAnswer[0]);
@@ -385,8 +369,6 @@ const App = () => {
   useEffect(() => {
     const shufflingSecondLifeLINE = () => {
       let array = [];
-      console.log("askTheAudienceProbabilityB");
-      console.log(askTheAudienceProbabilityB);
       if (askTheAudienceProbabilityB.index) {
         array.push(askTheAudienceProbabilityB);
       } else {
@@ -448,7 +430,6 @@ const App = () => {
 
         for (let i = 0; i <= 3; i++) {
           if (array[i].index) {
-            console.log(i);
             lastCopyArray.push({
               index: array[i].index,
               value: array[i].value + sumUp,
@@ -488,8 +469,6 @@ const App = () => {
         if (!lastCopyArray[3].value) {
           setHeightValuesFourth(0);
         }
-        console.log("askkk");
-        console.log(lastCopyArray);
       }
     };
     shufflingSecondLifeLINE();
@@ -516,15 +495,12 @@ const App = () => {
 
     let randomNumber = Math.floor(Math.random() * 10);
     let sumOfRandomNumberAndDiff = randomNumber + difficultyOfTheQuestion;
-    console.log("sumOfRandomNumberAndDiff");
-    console.log(sumOfRandomNumberAndDiff);
+
     if (sumOfRandomNumberAndDiff >= 6) {
       setAskTheFriendRender(array[0].body);
-      console.log(array);
     } else {
       let shuffleArray = wrongArray.sort(() => Math.random() - 0.5);
       setAskTheFriendRender(shuffleArray[0].body);
-      console.log(shuffleArray);
     }
   };
 

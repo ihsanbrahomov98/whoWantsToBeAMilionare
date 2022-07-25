@@ -2,7 +2,7 @@ const oneQuestionFourAnswers = [
   {
     id: 1,
     degreeOfComplexity: 45,
-    question: "When wasadsad asdasasdasdassdaaaaaaaaaas Bulgaria founded?",
+    question: "When was Bulgaria founded?",
 
     answers: [
       {
@@ -260,7 +260,7 @@ const oneQuestionFourAnswers = [
   },
   {
     id: 12,
-    degreeOfComplexity: 112,
+    degreeOfComplexity: 12,
     question:
       "Something in an obvious location is said to be right under your what?",
     answers: [
